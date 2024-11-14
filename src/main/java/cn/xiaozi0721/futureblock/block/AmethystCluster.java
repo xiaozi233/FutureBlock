@@ -1,0 +1,80 @@
+package cn.xiaozi0721.futureblock.block;
+
+import cn.xiaozi0721.futureblock.Tags;
+import net.minecraft.block.BlockDirectional;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.state.BlockFaceShape;
+import net.minecraft.block.state.BlockStateContainer;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.util.BlockRenderLayer;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.Mirror;
+import net.minecraft.util.Rotation;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+
+@SuppressWarnings(value={"deprecation", "NullableProblems"})
+public class AmethystCluster extends AbstractAmethystCluster {
+    protected static final AxisAlignedBB AABB_NORTH = new AxisAlignedBB(0.1875D, 0.1875D, 0.5625D, 0.8125D, 0.8125D, 1D);
+    protected static final AxisAlignedBB AABB_SOUTH = new AxisAlignedBB(0.1875D, 0.1875D, 0D, 0.8125D, 0.8125D, 0.4375D);
+    protected static final AxisAlignedBB AABB_WEST = new AxisAlignedBB(0.5625D, 0.1875D, 0.1875D, 1D, 0.8125D, 0.8125D);
+    protected static final AxisAlignedBB AABB_EAST = new AxisAlignedBB(0D, 0.1875D, 0.1875D, 0.4375D, 0.8125D, 0.8125D);
+    protected static final AxisAlignedBB AABB_DOWN = new AxisAlignedBB(0.1875D, 0.5625D, 0.1875D, 0.8125D, 1D, 0.8125D);
+    protected static final AxisAlignedBB AABB_UP = new AxisAlignedBB(0.1875D, 0.0D, 0.1875D, 0.8125D, 0.4375D, 0.8125D);
+
+    public AmethystCluster() {
+        String name = "amethyst_cluster";
+        this.setRegistryName(Tags.MOD_ID, name);
+        this.setCreativeTab(CreativeTabs.DECORATIONS);
+        this.setTranslationKey(Tags.MOD_ID + ".block." + name);
+    }
+    public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
+    {
+        return this.getDefaultState().withProperty(FACING, facing);
+    }
+
+    public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos)
+    {
+        return getBox(blockState, worldIn, pos);
+    }
+
+    public AxisAlignedBB getBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos)
+    {
+        return getBox(blockState, worldIn, pos);
+    }
+
+    public AxisAlignedBB getBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos){
+        AxisAlignedBB axisalignedbb;
+        EnumFacing enumfacing = (EnumFacing)blockState.getValue(FACING);
+        switch (enumfacing)
+        {
+            case NORTH:
+            default:
+                axisalignedbb = AABB_NORTH;
+                break;
+            case SOUTH:
+                axisalignedbb = AABB_SOUTH;
+                break;
+            case WEST:
+                axisalignedbb = AABB_WEST;
+                break;
+            case EAST:
+                axisalignedbb = AABB_EAST;
+                break;
+            case UP:
+                axisalignedbb = AABB_UP;
+                break;
+            case DOWN:
+                axisalignedbb = AABB_DOWN;
+                break;
+        }
+        return axisalignedbb;
+    }
+}

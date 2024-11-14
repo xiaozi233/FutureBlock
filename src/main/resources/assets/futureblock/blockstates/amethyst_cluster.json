@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "futureblock:amethyst_cluster",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "futureblock:amethyst_cluster",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "futureblock:amethyst_cluster",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "futureblock:amethyst_cluster",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "futureblock:amethyst_cluster"
+    },
+    "facing=west": {
+      "model": "futureblock:amethyst_cluster",
+      "x": 90,
+      "y": 270
+    }
+  }
+}
