@@ -18,6 +18,8 @@ import java.util.Objects;
 public final class BlocksRegister {
     public static final Block Amethyst_Cluster = new AmethystCluster();
     public static final Block Small_Amethyst_Bud = new SmallAmethystBud();
+    public static final Block Medium_Amethyst_Bud = new MediumAmethystBud();
+    public static final Block Large_Amethyst_Bud = new LargeAmethystBud();
 
     public BlocksRegister() {
         MinecraftForge.EVENT_BUS.register(this);
@@ -25,7 +27,9 @@ public final class BlocksRegister {
 
     private static final Block[] blocks = {
             Amethyst_Cluster,
-            Small_Amethyst_Bud
+            Small_Amethyst_Bud,
+            Medium_Amethyst_Bud,
+            Large_Amethyst_Bud
     };
 
     @SubscribeEvent

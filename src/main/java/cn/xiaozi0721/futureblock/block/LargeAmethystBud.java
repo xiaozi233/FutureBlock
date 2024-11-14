@@ -1,8 +1,6 @@
 package cn.xiaozi0721.futureblock.block;
 
 import cn.xiaozi0721.futureblock.Tags;
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
@@ -13,16 +11,16 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 @SuppressWarnings(value={"deprecation", "NullableProblems"})
-public class SmallAmethystBud extends AbstractAmethystCluster {
-    protected static final AxisAlignedBB AABB_NORTH = new AxisAlignedBB(0.25, 0.25, 0.8125D, 0.75D, 0.75D, 1D);
-    protected static final AxisAlignedBB AABB_SOUTH = new AxisAlignedBB(0.25, 0.25, 0D, 0.75D, 0.75D, 0.1875D);
-    protected static final AxisAlignedBB AABB_WEST = new AxisAlignedBB(0.8125D, 0.25D, 0.25D, 1D, 0.75D, 0.75D);
-    protected static final AxisAlignedBB AABB_EAST = new AxisAlignedBB(0D, 0.25D, 0.25D, 0.1875D, 0.75D, 0.75D);
-    protected static final AxisAlignedBB AABB_DOWN = new AxisAlignedBB(0.25D, 0.8125D, 0.25D, 0.75D, 1D, 0.75D);
-    protected static final AxisAlignedBB AABB_UP = new AxisAlignedBB(0.25D, 0.0D, 0.25D, 0.75D, 0.1875D, 0.75D);
+public class LargeAmethystBud extends AbstractAmethystCluster{
+    protected static final AxisAlignedBB AABB_NORTH = new AxisAlignedBB(0.2D, 0.2D, 0.6875D, 0.8D, 0.8D, 1D);
+    protected static final AxisAlignedBB AABB_SOUTH = new AxisAlignedBB(0.2D, 0.2D, 0D, 0.8D, 0.8D, 0.3125D);
+    protected static final AxisAlignedBB AABB_WEST = new AxisAlignedBB(0.6875D, 0.2D, 0.2D, 1D, 0.8D, 0.8D);
+    protected static final AxisAlignedBB AABB_EAST = new AxisAlignedBB(0D, 0.2D, 0.2D, 0.3125D, 0.8D, 0.8D);
+    protected static final AxisAlignedBB AABB_DOWN = new AxisAlignedBB(0.2D, 0.6875D, 0.2D, 0.8D, 1D, 0.8D);
+    protected static final AxisAlignedBB AABB_UP = new AxisAlignedBB(0.2D, 0.0D, 0.2D, 0.8D, 0.3125D, 0.8D);
 
-    public SmallAmethystBud() {
-        String name = "small_amethyst_bud";
+    public LargeAmethystBud() {
+        String name = "large_amethyst_bud";
         this.setRegistryName(Tags.MOD_ID, name);
         this.setCreativeTab(CreativeTabs.DECORATIONS);
         this.setTranslationKey(Tags.MOD_ID + ".block." + name);
