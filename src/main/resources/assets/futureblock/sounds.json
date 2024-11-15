@@ -1,0 +1,78 @@
+{
+  "amethyst_cluster.place": {
+    "category": "block",
+    "subtitle": "subtitles.block.generic.place",
+    "sounds": [
+      "futureblock:block/amethyst/place1",
+      "futureblock:block/amethyst/place2",
+      "futureblock:block/amethyst/place3",
+      "futureblock:block/amethyst/place4"
+    ]
+  },
+  "amethyst_cluster.break": {
+    "category": "block",
+    "subtitle": "subtitles.block.generic.break",
+    "sounds": [
+      "futureblock:block/amethyst/break1",
+      "futureblock:block/amethyst/break2",
+      "futureblock:block/amethyst/break3",
+      "futureblock:block/amethyst/break4"
+    ]
+  },
+  "amethyst_cluster.step": {
+    "category": "block",
+    "subtitle": "subtitles.block.generic.footsteps",
+    "sounds": [
+      "futureblock:block/amethyst/step1",
+      "futureblock:block/amethyst/step2",
+      "futureblock:block/amethyst/step3",
+      "futureblock:block/amethyst/step4",
+      "futureblock:block/amethyst/step5",
+      "futureblock:block/amethyst/step6",
+      "futureblock:block/amethyst/step7",
+      "futureblock:block/amethyst/step8",
+      "futureblock:block/amethyst/step9",
+      "futureblock:block/amethyst/step10",
+      "futureblock:block/amethyst/step11",
+      "futureblock:block/amethyst/step12",
+      "futureblock:block/amethyst/step13",
+      "futureblock:block/amethyst/step14"
+    ]
+  },
+  "amethyst_cluster.fall": {
+    "category": "block",
+    "sounds": [
+      "futureblock:block/amethyst/step1",
+      "futureblock:block/amethyst/step2",
+      "futureblock:block/amethyst/step3",
+      "futureblock:block/amethyst/step4",
+      "futureblock:block/amethyst/step5",
+      "futureblock:block/amethyst/step6",
+      "futureblock:block/amethyst/step7",
+      "futureblock:block/amethyst/step8",
+      "futureblock:block/amethyst/step9",
+      "futureblock:block/amethyst/step10",
+      "futureblock:block/amethyst/step11",
+      "futureblock:block/amethyst/step12",
+      "futureblock:block/amethyst/step14"
+    ]
+  },
+  "amethyst_cluster.hit": {
+    "category": "block",
+    "subtitle": "subtitles.block.generic.hit",
+    "sounds": [
+      "futureblock:block/amethyst/step1",
+      "futureblock:block/amethyst/step2",
+      "futureblock:block/amethyst/step3",
+      "futureblock:block/amethyst/step4",
+      "futureblock:block/amethyst/step5",
+      "futureblock:block/amethyst/step6",
+      "futureblock:block/amethyst/step7",
+      "futureblock:block/amethyst/step8",
+      "futureblock:block/amethyst/step9",
+      "futureblock:block/amethyst/step10",
+      "futureblock:block/amethyst/step11",
+      "futureblock:block/amethyst/step12"
+    ]
+  }
+}
