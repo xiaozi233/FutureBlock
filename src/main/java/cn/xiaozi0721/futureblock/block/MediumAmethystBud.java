@@ -12,12 +12,12 @@ import net.minecraft.world.World;
 
 @SuppressWarnings(value={"deprecation", "NullableProblems"})
 public class MediumAmethystBud extends AbstractAmethystCluster{
-    protected static final AxisAlignedBB AABB_NORTH = new AxisAlignedBB(0.2D, 0.2D, 0.75D, 0.8D, 0.8D, 1D);
-    protected static final AxisAlignedBB AABB_SOUTH = new AxisAlignedBB(0.2D, 0.2D, 0D, 0.8D, 0.8D, 0.25D);
-    protected static final AxisAlignedBB AABB_WEST = new AxisAlignedBB(0.75D, 0.2D, 0.2D, 1D, 0.8D, 0.8D);
-    protected static final AxisAlignedBB AABB_EAST = new AxisAlignedBB(0D, 0.2D, 0.2D, 0.25D, 0.8D, 0.8D);
-    protected static final AxisAlignedBB AABB_DOWN = new AxisAlignedBB(0.2D, 0.75D, 0.2D, 0.8D, 1D, 0.8D);
-    protected static final AxisAlignedBB AABB_UP = new AxisAlignedBB(0.2D, 0.0D, 0.2D, 0.8D, 0.25D, 0.8D);
+    protected static final AxisAlignedBB AABB_NORTH = new AxisAlignedBB(0.1875D, 0.1875D, 0.75D, 0.8125D, 0.8125D, 1D);
+    protected static final AxisAlignedBB AABB_SOUTH = new AxisAlignedBB(0.1875D, 0.1875D, 0D, 0.8125D, 0.8125D, 0.25D);
+    protected static final AxisAlignedBB AABB_WEST = new AxisAlignedBB(0.75D, 0.1875D, 0.1875D, 1D, 0.8125D, 0.8125D);
+    protected static final AxisAlignedBB AABB_EAST = new AxisAlignedBB(0D, 0.1875D, 0.1875D, 0.25D, 0.8125D, 0.8125D);
+    protected static final AxisAlignedBB AABB_DOWN = new AxisAlignedBB(0.1875D, 0.75D, 0.1875D, 0.8125D, 1D, 0.8125D);
+    protected static final AxisAlignedBB AABB_UP = new AxisAlignedBB(0.1875D, 0.0D, 0.1875D, 0.8125D, 0.25D, 0.8125D);
 
     public MediumAmethystBud() {
         String name = "medium_amethyst_bud";
