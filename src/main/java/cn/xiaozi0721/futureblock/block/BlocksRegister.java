@@ -15,24 +15,24 @@ import java.util.Objects;
 @SuppressWarnings(value={"unused"})
 @Mod.EventBusSubscriber
 public final class BlocksRegister {
-    public static final Block Amethyst_Cluster = new BlockAmethystCluster();
-    public static final Block Small_Amethyst_Bud = new BlockSmallAmethystBud();
-    public static final Block Medium_Amethyst_Bud = new BlockMediumAmethystBud();
-    public static final Block Large_Amethyst_Bud = new BlockLargeAmethystBud();
+    public static final Block AMETHYST_CLUSTER = new BlockAmethystCluster();
+    public static final Block SMALL_AMETHYST_BUD = new BlockSmallAmethystBud();
+    public static final Block MEDIUM_AMETHYST_BUD= new BlockMediumAmethystBud();
+    public static final Block LARGE_AMETHYST_BUD = new BlockLargeAmethystBud();
     public static final Block BE_STRUCTURE_VOID = new BlockBEStructureVoid();
-    public static final Block Chain = new BlockChain();
+    public static final Block CHAIN = new BlockChain();
 
     public BlocksRegister() {
         MinecraftForge.EVENT_BUS.register(this);
     }
 
     private static final Block[] blocks = {
-            Amethyst_Cluster,
-            Small_Amethyst_Bud,
-            Medium_Amethyst_Bud,
-            Large_Amethyst_Bud,
+            AMETHYST_CLUSTER,
+            SMALL_AMETHYST_BUD,
+            MEDIUM_AMETHYST_BUD,
+            LARGE_AMETHYST_BUD,
             BE_STRUCTURE_VOID,
-           Chain
+            CHAIN
     };
 
     @SubscribeEvent
