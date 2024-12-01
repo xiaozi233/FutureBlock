@@ -25,16 +25,20 @@ public class SmallAmethystBud extends AbstractAmethystCluster {
         this.setCreativeTab(CreativeTabs.DECORATIONS);
         this.setTranslationKey(Tags.MOD_ID + ".block." + name);
     }
+
+    @Override
     public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
     {
         return this.getDefaultState().withProperty(FACING, facing);
     }
 
+    @Override
     public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos)
     {
         return getBox(blockState, worldIn, pos);
     }
 
+    @Override
     public AxisAlignedBB getBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos)
     {
         return getBox(blockState, worldIn, pos);

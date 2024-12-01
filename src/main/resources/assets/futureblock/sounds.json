@@ -74,5 +74,103 @@
       "futureblock:block/amethyst/step11",
       "futureblock:block/amethyst/step12"
     ]
+  },
+  "chain.place": {
+    "category": "block",
+    "subtitle": "subtitles.block.generic.place",
+    "sounds": [
+      {
+        "name": "futureblock:block/chain/break1",
+        "volume": 0.5
+      },
+      {
+        "name": "futureblock:block/chain/break2",
+        "volume": 0.5
+      },
+      {
+        "name": "futureblock:block/chain/break3",
+        "volume": 0.5
+      },
+      {
+        "name": "futureblock:block/chain/break4",
+        "volume": 0.5
+      }
+    ]
+  },
+  "chain.break": {
+    "category": "block",
+    "subtitle": "subtitles.block.generic.break",
+    "sounds": [
+      {
+        "name": "futureblock:block/chain/break1",
+        "volume": 0.5
+      },
+      {
+        "name": "futureblock:block/chain/break2",
+        "volume": 0.5
+      },
+      {
+        "name": "futureblock:block/chain/break3",
+        "volume": 0.5
+      },
+      {
+        "name": "futureblock:block/chain/break4",
+        "volume": 0.5
+      }
+    ]
+  },
+  "chain.step": {
+    "category": "block",
+    "subtitle": "subtitles.block.generic.footsteps",
+    "sounds": [
+      "futureblock:block/chain/step1",
+      "futureblock:block/chain/step2",
+      "futureblock:block/chain/step3",
+      "futureblock:block/chain/step4",
+      "futureblock:block/chain/step5",
+      "futureblock:block/chain/step6"
+    ]
+  },
+  "chain.fall": {
+    "category": "block",
+    "sounds": [
+      "futureblock:block/chain/step1",
+      "futureblock:block/chain/step2",
+      "futureblock:block/chain/step3",
+      "futureblock:block/chain/step4",
+      "futureblock:block/chain/step5",
+      "futureblock:block/chain/step6"
+    ]
+  },
+  "chain.hit": {
+    "category": "block",
+    "subtitle": "subtitles.block.generic.hit",
+    "sounds": [
+
+      {
+        "name": "futureblock:block/chain/step1",
+        "volume": 0.8
+      },
+      {
+        "name": "futureblock:block/chain/step2",
+        "volume": 0.8
+      },
+      {
+        "name": "futureblock:block/chain/step3",
+        "volume": 0.8
+      },
+      {
+        "name": "futureblock:block/chain/step4",
+        "volume": 0.8
+      },
+      {
+        "name": "futureblock:block/chain/step5",
+        "volume": 0.8
+      },
+      {
+        "name": "futureblock:block/chain/step6",
+        "volume": 0.8
+      }
+    ]
   }
 }

@@ -19,6 +19,8 @@ public final class BlocksRegister {
     public static final Block Small_Amethyst_Bud = new SmallAmethystBud();
     public static final Block Medium_Amethyst_Bud = new MediumAmethystBud();
     public static final Block Large_Amethyst_Bud = new LargeAmethystBud();
+    public static final Block BE_STRUCTURE_VOID = new BEStructureVoid();
+    public static final Block Block_Chain = new BlockChain();
 
     public BlocksRegister() {
         MinecraftForge.EVENT_BUS.register(this);
@@ -28,7 +30,9 @@ public final class BlocksRegister {
             Amethyst_Cluster,
             Small_Amethyst_Bud,
             Medium_Amethyst_Bud,
-            Large_Amethyst_Bud
+            Large_Amethyst_Bud,
+            BE_STRUCTURE_VOID,
+            Block_Chain
     };
 
     @SubscribeEvent
@@ -47,4 +51,5 @@ public final class BlocksRegister {
             event.getRegistry().register(itemBlock);
         }
     }
+
 }

@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "futureblock:chain",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "futureblock:chain"
+    },
+    "axis=z": {
+      "model": "futureblock:chain",
+      "x": 90
+    }
+  }
+}
