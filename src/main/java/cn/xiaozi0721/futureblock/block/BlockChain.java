@@ -3,7 +3,6 @@ package cn.xiaozi0721.futureblock.block;
 import cn.xiaozi0721.futureblock.Tags;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
@@ -40,8 +39,8 @@ public class BlockChain extends BlockRotatedPillar {
     {
         EnumFacing.Axis enumAxis = state.getValue(AXIS);
         switch (enumAxis){
-            default:
             case X:
+            default:
                 return X_AXIS_AABB;
             case Y:
                 return Y_AXIS_AABB;

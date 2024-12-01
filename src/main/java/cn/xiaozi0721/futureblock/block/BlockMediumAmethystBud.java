@@ -11,16 +11,16 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 @SuppressWarnings(value={"deprecation", "NullableProblems"})
-public class AmethystCluster extends AbstractAmethystCluster {
-    protected static final AxisAlignedBB AABB_NORTH = new AxisAlignedBB(0.1875D, 0.1875D, 0.5625D, 0.8125D, 0.8125D, 1D);
-    protected static final AxisAlignedBB AABB_SOUTH = new AxisAlignedBB(0.1875D, 0.1875D, 0D, 0.8125D, 0.8125D, 0.4375D);
-    protected static final AxisAlignedBB AABB_WEST = new AxisAlignedBB(0.5625D, 0.1875D, 0.1875D, 1D, 0.8125D, 0.8125D);
-    protected static final AxisAlignedBB AABB_EAST = new AxisAlignedBB(0D, 0.1875D, 0.1875D, 0.4375D, 0.8125D, 0.8125D);
-    protected static final AxisAlignedBB AABB_DOWN = new AxisAlignedBB(0.1875D, 0.5625D, 0.1875D, 0.8125D, 1D, 0.8125D);
-    protected static final AxisAlignedBB AABB_UP = new AxisAlignedBB(0.1875D, 0.0D, 0.1875D, 0.8125D, 0.4375D, 0.8125D);
+public class BlockMediumAmethystBud extends BlockBaseAmethystCluster {
+    protected static final AxisAlignedBB AABB_NORTH = new AxisAlignedBB(0.1875D, 0.1875D, 0.75D, 0.8125D, 0.8125D, 1D);
+    protected static final AxisAlignedBB AABB_SOUTH = new AxisAlignedBB(0.1875D, 0.1875D, 0D, 0.8125D, 0.8125D, 0.25D);
+    protected static final AxisAlignedBB AABB_WEST = new AxisAlignedBB(0.75D, 0.1875D, 0.1875D, 1D, 0.8125D, 0.8125D);
+    protected static final AxisAlignedBB AABB_EAST = new AxisAlignedBB(0D, 0.1875D, 0.1875D, 0.25D, 0.8125D, 0.8125D);
+    protected static final AxisAlignedBB AABB_DOWN = new AxisAlignedBB(0.1875D, 0.75D, 0.1875D, 0.8125D, 1D, 0.8125D);
+    protected static final AxisAlignedBB AABB_UP = new AxisAlignedBB(0.1875D, 0.0D, 0.1875D, 0.8125D, 0.25D, 0.8125D);
 
-    public AmethystCluster() {
-        String name = "amethyst_cluster";
+    public BlockMediumAmethystBud() {
+        String name = "medium_amethyst_bud";
         this.setRegistryName(Tags.MOD_ID, name);
         this.setCreativeTab(CreativeTabs.DECORATIONS);
         this.setTranslationKey(Tags.MOD_ID + ".block." + name);
@@ -33,18 +33,8 @@ public class AmethystCluster extends AbstractAmethystCluster {
     }
 
     @Override
-    public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos)
-    {
-        return getBox(blockState, worldIn, pos);
-    }
-
-    @Override
     public AxisAlignedBB getBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos)
     {
-        return getBox(blockState, worldIn, pos);
-    }
-
-    public AxisAlignedBB getBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos){
         AxisAlignedBB axisalignedbb;
         EnumFacing enumfacing = (EnumFacing)blockState.getValue(FACING);
         switch (enumfacing)

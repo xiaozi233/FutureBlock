@@ -33,7 +33,8 @@ public class SoundEventRegister {
             CHAIN_BREAK,
             CHAIN_STEP,
             CHAIN_PLACE,
-            CHAIN_HIT
+            CHAIN_HIT,
+            CHAIN_FALL
     };
 
     public static void onSoundEventRegistration(RegistryEvent.Register<SoundEvent> event) {

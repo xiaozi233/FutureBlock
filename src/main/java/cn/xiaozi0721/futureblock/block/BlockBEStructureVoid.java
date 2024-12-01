@@ -10,8 +10,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 
 @SuppressWarnings(value={"deprecation", "NullableProblems"})
-public class BEStructureVoid extends BlockStructureVoid {
-    public BEStructureVoid() {
+public class BlockBEStructureVoid extends BlockStructureVoid {
+    public BlockBEStructureVoid() {
         String name = "be_structure_void";
         this.setRegistryName(Tags.MOD_ID, name);
         this.setCreativeTab(CreativeTabs.DECORATIONS);

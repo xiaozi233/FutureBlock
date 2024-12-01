@@ -16,8 +16,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import static cn.xiaozi0721.futureblock.sound.SoundEventRegister.AMETHYST_CLUSTER;
 
 @SuppressWarnings(value={"deprecation", "NullableProblems"})
-public abstract class AbstractAmethystCluster extends BlockDirectional {
-    public AbstractAmethystCluster() {
+public abstract class BlockBaseAmethystCluster extends BlockDirectional {
+    public BlockBaseAmethystCluster() {
         super(Material.ROCK);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
         this.setLightOpacity(0);

@@ -11,7 +11,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 @SuppressWarnings(value={"deprecation", "NullableProblems"})
-public class LargeAmethystBud extends AbstractAmethystCluster{
+public class BlockLargeAmethystBud extends BlockBaseAmethystCluster {
     protected static final AxisAlignedBB AABB_NORTH = new AxisAlignedBB(0.1875D, 0.1875D, 0.6875D, 0.8125D, 0.8125D, 1D);
     protected static final AxisAlignedBB AABB_SOUTH = new AxisAlignedBB(0.1875D, 0.1875D, 0D, 0.8125D, 0.8125D, 0.3125D);
     protected static final AxisAlignedBB AABB_WEST = new AxisAlignedBB(0.6875D, 0.1875D, 0.1875D, 1D, 0.8125D, 0.8125D);
@@ -19,7 +19,7 @@ public class LargeAmethystBud extends AbstractAmethystCluster{
     protected static final AxisAlignedBB AABB_DOWN = new AxisAlignedBB(0.1875D, 0.6875D, 0.1875D, 0.8125D, 1D, 0.8125D);
     protected static final AxisAlignedBB AABB_UP = new AxisAlignedBB(0.1875D, 0.0D, 0.1875D, 0.8125D, 0.3125D, 0.8125D);
 
-    public LargeAmethystBud() {
+    public BlockLargeAmethystBud() {
         String name = "large_amethyst_bud";
         this.setRegistryName(Tags.MOD_ID, name);
         this.setCreativeTab(CreativeTabs.DECORATIONS);
@@ -33,18 +33,8 @@ public class LargeAmethystBud extends AbstractAmethystCluster{
     }
 
     @Override
-    public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos)
-    {
-        return getBox(blockState, worldIn, pos);
-    }
-
-    @Override
     public AxisAlignedBB getBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos)
     {
-        return getBox(blockState, worldIn, pos);
-    }
-
-    public AxisAlignedBB getBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos){
         AxisAlignedBB axisalignedbb;
         EnumFacing enumfacing = (EnumFacing)blockState.getValue(FACING);
         switch (enumfacing)
