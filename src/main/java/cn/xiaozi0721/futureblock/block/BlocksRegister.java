@@ -21,6 +21,7 @@ public final class BlocksRegister {
     public static final Block LARGE_AMETHYST_BUD = new BlockLargeAmethystBud();
     public static final Block BE_STRUCTURE_VOID = new BlockBEStructureVoid();
     public static final Block CHAIN = new BlockChain();
+    public static final Block HONEY = new BlockHoney();
 
     public BlocksRegister() {
         MinecraftForge.EVENT_BUS.register(this);
@@ -32,7 +33,8 @@ public final class BlocksRegister {
             MEDIUM_AMETHYST_BUD,
             LARGE_AMETHYST_BUD,
             BE_STRUCTURE_VOID,
-            CHAIN
+            CHAIN,
+            HONEY
     };
 
     @SubscribeEvent

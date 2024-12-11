@@ -1,0 +1,22 @@
+{
+  "compatibilityLevel": "JAVA_8",
+  "required": true,
+  "minVersion": "0.8.5",
+  "package": "cn.xiaozi0721.futureblock.mixin",
+  "plugin": "cn.xiaozi0721.futureblock.common.MixinConfigPlugin",
+  "target": "@env(DEFAULT)",
+  "refmap": "mixins.futureblock.refmap.json",
+  "mixins": [
+    "MixinBlock",
+    "MixinEntity",
+    "MixinEntityLivingBase",
+    "MixinEntityMagmaCube",
+    "MixinEntitySlime"
+  ],
+  "client": [
+  ],
+  "server": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

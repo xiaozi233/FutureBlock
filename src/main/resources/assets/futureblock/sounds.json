@@ -172,5 +172,95 @@
         "volume": 0.8
       }
     ]
+  },
+  "honey.break": {
+    "sounds": [
+      "futureblock:block/honey/break1",
+      "futureblock:block/honey/break2",
+      "futureblock:block/honey/break3",
+      "futureblock:block/honey/break4",
+      "futureblock:block/honey/break5"
+    ],
+    "subtitle": "subtitles.block.generic.break"
+  },
+  "honey.fall": {
+    "sounds": [
+      "futureblock:block/honey/step1",
+      "futureblock:block/honey/step2",
+      "futureblock:block/honey/step3",
+      "futureblock:block/honey/step4",
+      "futureblock:block/honey/step5"
+    ]
+  },
+  "honey.hit": {
+    "sounds": [
+      "futureblock:block/honey/step1",
+      "futureblock:block/honey/step2",
+      "futureblock:block/honey/step3",
+      "futureblock:block/honey/step4",
+      "futureblock:block/honey/step5"
+    ],
+    "subtitle": "subtitles.block.generic.hit"
+  },
+  "honey.place": {
+    "sounds": [
+      "futureblock:block/honey/break1",
+      "futureblock:block/honey/break2",
+      "futureblock:block/honey/break3",
+      "futureblock:block/honey/break4",
+      "futureblock:block/honey/break5"
+    ],
+    "subtitle": "subtitles.block.generic.place"
+  },
+  "honey.slide": {
+    "sounds": [
+      {
+        "name": "futureblock:block/honey/slide1",
+        "volume": 0.8
+      },
+      {
+        "name": "futureblock:block/honey/slide1",
+        "pitch": 0.9,
+        "volume": 0.8
+      },
+      {
+        "name": "futureblock:block/honey/slide2",
+        "volume": 0.8
+      },
+      {
+        "name": "futureblock:block/honey/slide2",
+        "pitch": 0.8,
+        "volume": 0.8
+      },
+      {
+        "name": "futureblock:block/honey/slide3",
+        "volume": 0.8
+      },
+      {
+        "name": "futureblock:block/honey/slide3",
+        "pitch": 0.8,
+        "volume": 0.8
+      },
+      {
+        "name": "futureblock:block/honey/slide4",
+        "volume": 0.8
+      },
+      {
+        "name": "futureblock:block/honey/slide4",
+        "pitch": 0.8,
+        "volume": 0.8
+      }
+    ],
+    "subtitle": "subtitles.honey.slide"
+  },
+  "honey.step": {
+    "sounds": [
+      "futureblock:block/honey/step1",
+      "futureblock:block/honey/step2",
+      "futureblock:block/honey/step3",
+      "futureblock:block/honey/step4",
+      "futureblock:block/honey/step5"
+    ],
+    "subtitle": "subtitles.block.generic.footsteps"
   }
 }
