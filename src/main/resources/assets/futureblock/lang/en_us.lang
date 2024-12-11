@@ -4,3 +4,6 @@ tile.futureblock.block.large_amethyst_bud.name=Large Amethyst Bud
 tile.futureblock.block.amethyst_cluster.name=Amethyst Cluster
 tile.futureblock.block.be_structure_void.name=Structure Void (BE)
 tile.futureblock.block.chain.name=Chain
+tile.futureblock.block.honey.name=Honey Block
+
+subtitles.honey.slide=Sliding down a honey block

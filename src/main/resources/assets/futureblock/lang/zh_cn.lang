@@ -4,3 +4,6 @@ tile.futureblock.block.large_amethyst_bud.name=大型紫晶芽
 tile.futureblock.block.amethyst_cluster.name=紫水晶簇
 tile.futureblock.block.be_structure_void.name=结构空位（基岩版）
 tile.futureblock.block.chain.name=锁链
+tile.futureblock.block.honey.name=蜂蜜块
+
+subtitles.honey.slide=从蜂蜜块滑下
