@@ -5,5 +5,8 @@ tile.futureblock.block.amethyst_cluster.name=Amethyst Cluster
 tile.futureblock.block.be_structure_void.name=Structure Void (BE)
 tile.futureblock.block.chain.name=Chain
 tile.futureblock.block.honey.name=Honey Block
+tile.futureblock.block.honey_netease.name=Honey Block (NetEase)
+
+itemGroup.futureblock.tab=Future Block
 
 subtitles.honey.slide=Sliding down a honey block

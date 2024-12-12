@@ -1,6 +1,8 @@
 package cn.xiaozi0721.futureblock;
 
 import cn.xiaozi0721.futureblock.proxy.CommonProxy;
+import cn.xiaozi0721.futureblock.tab.FutureBlockTab;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -16,7 +18,7 @@ public class FutureBlock {
     public static final Logger LOGGER = LogManager.getLogger(Tags.MOD_NAME);
     private static final String CLIENT_PROXY = "cn.xiaozi0721." + Tags.MOD_ID + ".proxy.ClientProxy";
     private static final String COMMON_PROXY = "cn.xiaozi0721." + Tags.MOD_ID + ".proxy.CommonProxy";
-
+    public static CreativeTabs FUTUREBLOCK_TAB = new FutureBlockTab();
     @SidedProxy(clientSide = CLIENT_PROXY, serverSide = COMMON_PROXY)
     private static CommonProxy proxy;
 
@@ -27,6 +29,7 @@ public class FutureBlock {
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
+
     }
 
     @Mod.EventHandler

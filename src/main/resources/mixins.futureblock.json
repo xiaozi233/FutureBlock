@@ -9,7 +9,9 @@
   "mixins": [
     "MixinBlock",
     "MixinEntity",
-    "MixinEntityLivingBase"
+    "MixinEntityLivingBase",
+    "MixinEntityMagmaCube",
+    "MixinEntitySlime"
   ],
   "client": [
   ],

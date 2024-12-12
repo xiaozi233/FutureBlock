@@ -2,7 +2,6 @@ package cn.xiaozi0721.futureblock.block;
 
 import cn.xiaozi0721.futureblock.Tags;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -22,7 +21,6 @@ public class BlockLargeAmethystBud extends BlockBaseAmethystCluster {
     public BlockLargeAmethystBud() {
         String name = "large_amethyst_bud";
         this.setRegistryName(Tags.MOD_ID, name);
-        this.setCreativeTab(CreativeTabs.DECORATIONS);
         this.setTranslationKey(Tags.MOD_ID + ".block." + name);
     }
 

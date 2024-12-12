@@ -1,5 +1,6 @@
 package cn.xiaozi0721.futureblock.block;
 
+import cn.xiaozi0721.futureblock.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
@@ -13,7 +14,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import java.util.Objects;
 
 @SuppressWarnings(value={"unused"})
-@Mod.EventBusSubscriber
+@Mod.EventBusSubscriber(modid = Tags.MOD_ID)
 public final class BlocksRegister {
     public static final Block AMETHYST_CLUSTER = new BlockAmethystCluster();
     public static final Block SMALL_AMETHYST_BUD = new BlockSmallAmethystBud();
@@ -22,6 +23,7 @@ public final class BlocksRegister {
     public static final Block BE_STRUCTURE_VOID = new BlockBEStructureVoid();
     public static final Block CHAIN = new BlockChain();
     public static final Block HONEY = new BlockHoney();
+    public static final Block HONEY_NETEASE = new BlockHoneyNetease();
 
     public BlocksRegister() {
         MinecraftForge.EVENT_BUS.register(this);
@@ -34,7 +36,8 @@ public final class BlocksRegister {
             LARGE_AMETHYST_BUD,
             BE_STRUCTURE_VOID,
             CHAIN,
-            HONEY
+            HONEY,
+            HONEY_NETEASE
     };
 
     @SubscribeEvent

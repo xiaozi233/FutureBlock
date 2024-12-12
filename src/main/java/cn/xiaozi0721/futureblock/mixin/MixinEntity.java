@@ -1,6 +1,6 @@
 package cn.xiaozi0721.futureblock.mixin;
 
-import cn.xiaozi0721.futureblock.block.BlockHoney;
+import cn.xiaozi0721.futureblock.block.BlockBaseHoney;
 import cn.xiaozi0721.futureblock.interfaces.IGetBlock;
 import cn.xiaozi0721.futureblock.interfaces.IBlockSpeedFactor;
 import net.minecraft.block.Block;
@@ -60,6 +60,6 @@ public abstract class MixinEntity implements IGetBlock {
     @Override
     public boolean isUponHoneyBlock(){
         Block block = this.getBlockBelow(0);
-        return block instanceof BlockHoney;
+        return block instanceof BlockBaseHoney;
     }
 }

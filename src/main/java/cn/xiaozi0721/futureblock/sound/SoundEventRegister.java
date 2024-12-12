@@ -32,22 +32,9 @@ public class SoundEventRegister {
     public static final SoundType HONEY = new SoundType(1.0F, 1.0F, HONEY_BREAK, HONEY_STEP, HONEY_PLACE, HONEY_HIT, HONEY_FALL);
 
     private static final SoundEvent[] soundEvents = {
-            AMETHYST_CLUSTER_BREAK,
-            AMETHYST_CLUSTER_STEP,
-            AMETHYST_CLUSTER_PLACE,
-            AMETHYST_CLUSTER_HIT,
-            AMETHYST_CLUSTER_FALL,
-            CHAIN_BREAK,
-            CHAIN_STEP,
-            CHAIN_PLACE,
-            CHAIN_HIT,
-            CHAIN_FALL,
-            HONEY_BREAK,
-            HONEY_STEP,
-            HONEY_PLACE,
-            HONEY_HIT,
-            HONEY_FALL,
-            HONEY_SLIDE
+            AMETHYST_CLUSTER_BREAK, AMETHYST_CLUSTER_STEP, AMETHYST_CLUSTER_PLACE, AMETHYST_CLUSTER_HIT, AMETHYST_CLUSTER_FALL,
+            CHAIN_BREAK, CHAIN_STEP, CHAIN_PLACE, CHAIN_HIT, CHAIN_FALL,
+            HONEY_BREAK, HONEY_STEP, HONEY_PLACE, HONEY_HIT, HONEY_FALL, HONEY_SLIDE
     };
 
     public static void onSoundEventRegistration(RegistryEvent.Register<SoundEvent> event) {

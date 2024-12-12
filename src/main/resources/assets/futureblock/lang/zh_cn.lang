@@ -5,5 +5,8 @@ tile.futureblock.block.amethyst_cluster.name=紫水晶簇
 tile.futureblock.block.be_structure_void.name=结构空位（基岩版）
 tile.futureblock.block.chain.name=锁链
 tile.futureblock.block.honey.name=蜂蜜块
+tile.futureblock.block.honey_netease.name=蜂蜜块（网易）
+
+itemGroup.futureblock.tab=Future Block
 
 subtitles.honey.slide=从蜂蜜块滑下
