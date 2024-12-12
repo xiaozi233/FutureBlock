@@ -6,6 +6,7 @@ tile.futureblock.block.be_structure_void.name=Structure Void (BE)
 tile.futureblock.block.chain.name=Chain
 tile.futureblock.block.honey.name=Honey Block
 tile.futureblock.block.honey_netease.name=Honey Block (NetEase)
+tile.futureblock.block.honey_be.name=Honey Block (BE)
 
 itemGroup.futureblock.tab=Future Block
 
