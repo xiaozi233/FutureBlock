@@ -15,6 +15,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import static cn.xiaozi0721.futureblock.FutureBlock.FUTUREBLOCK_TAB;
 import static cn.xiaozi0721.futureblock.sound.SoundEventRegister.CHAIN;
 
 @SuppressWarnings(value={"deprecation", "NullableProblems"})
@@ -27,7 +28,7 @@ public class BlockChain extends BlockRotatedPillar {
         super(Material.IRON);
         String name = "chain";
         this.setRegistryName(Tags.MOD_ID, name);
-        this.setCreativeTab(CreativeTabs.DECORATIONS);
+        this.setCreativeTab(FUTUREBLOCK_TAB);
         this.setTranslationKey(Tags.MOD_ID + ".block." + name);
         this.setDefaultState(this.blockState.getBaseState().withProperty(AXIS, EnumFacing.Axis.X));
         this.setLightOpacity(0);

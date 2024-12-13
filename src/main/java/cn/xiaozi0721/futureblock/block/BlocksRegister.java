@@ -25,6 +25,7 @@ public final class BlocksRegister {
     public static final Block HONEY = new BlockHoney();
     public static final Block HONEY_NETEASE = new BlockHoneyNetease();
     public static final Block HONEY_BE = new BlockHoneyBE();
+    public static final Block SNIFFER_EGG = new BlockSnifferEgg();
 
     public BlocksRegister() {
         MinecraftForge.EVENT_BUS.register(this);
@@ -39,7 +40,8 @@ public final class BlocksRegister {
             CHAIN,
             HONEY,
             HONEY_NETEASE,
-            HONEY_BE
+            HONEY_BE,
+            SNIFFER_EGG
     };
 
     @SubscribeEvent

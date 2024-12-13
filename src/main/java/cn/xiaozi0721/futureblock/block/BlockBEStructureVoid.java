@@ -9,12 +9,14 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 
+import static cn.xiaozi0721.futureblock.FutureBlock.FUTUREBLOCK_TAB;
+
 @SuppressWarnings(value={"deprecation", "NullableProblems"})
 public class BlockBEStructureVoid extends BlockStructureVoid {
     public BlockBEStructureVoid() {
         String name = "be_structure_void";
         this.setRegistryName(Tags.MOD_ID, name);
-        this.setCreativeTab(CreativeTabs.DECORATIONS);
+        this.setCreativeTab(FUTUREBLOCK_TAB);
         this.setTranslationKey(Tags.MOD_ID + ".block." + name);
         this.setBlockUnbreakable();
     }

@@ -7,6 +7,7 @@ tile.futureblock.block.chain.name=Chain
 tile.futureblock.block.honey.name=Honey Block
 tile.futureblock.block.honey_netease.name=Honey Block (NetEase)
 tile.futureblock.block.honey_be.name=Honey Block (BE)
+tile.futureblock.block.sniffer_egg.name=Sniffer Egg
 
 itemGroup.futureblock.tab=Future Block
 

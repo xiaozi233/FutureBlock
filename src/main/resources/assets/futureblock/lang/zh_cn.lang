@@ -7,6 +7,7 @@ tile.futureblock.block.chain.name=锁链
 tile.futureblock.block.honey.name=蜂蜜块
 tile.futureblock.block.honey_netease.name=蜂蜜块（网易版）
 tile.futureblock.block.honey_be.name=蜂蜜块（基岩版）
+tile.futureblock.block.sniffer_egg.name=嗅探兽蛋
 
 itemGroup.futureblock.tab=Future Block
 
