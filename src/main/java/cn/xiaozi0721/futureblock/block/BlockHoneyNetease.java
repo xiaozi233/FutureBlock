@@ -6,7 +6,7 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 
-@SuppressWarnings(value={"deprecation", "NullableProblems"})
+@SuppressWarnings({"deprecation", "NullableProblems"})
 public class BlockHoneyNetease extends BlockBaseHoney{
     protected static final AxisAlignedBB HONEY_AABB = new AxisAlignedBB(0.0625D, 0.0D, 0.0625D, 0.9375D, 1D, 0.9735D);
 

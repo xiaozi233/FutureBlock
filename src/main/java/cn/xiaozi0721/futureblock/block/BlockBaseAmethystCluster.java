@@ -1,5 +1,7 @@
 package cn.xiaozi0721.futureblock.block;
 
+import cn.xiaozi0721.futureblock.FutureBlock;
+import cn.xiaozi0721.futureblock.sound.SoundEventRegister;
 import net.minecraft.block.BlockDirectional;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -13,17 +15,13 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import static cn.xiaozi0721.futureblock.FutureBlock.FUTUREBLOCK_TAB;
-import static cn.xiaozi0721.futureblock.sound.SoundEventRegister.AMETHYST_CLUSTER;
-
-@SuppressWarnings(value={"deprecation", "NullableProblems"})
+@SuppressWarnings({"deprecation", "NullableProblems"})
 public abstract class BlockBaseAmethystCluster extends BlockDirectional {
     public BlockBaseAmethystCluster() {
-        super(Material.ROCK);
+        super(Material.ICE);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
-        this.setCreativeTab(FUTUREBLOCK_TAB);
-        this.setLightOpacity(0);
-        this.setSoundType(AMETHYST_CLUSTER);
+        this.setCreativeTab(FutureBlock.FUTUREBLOCK_TAB);
+        this.setSoundType(SoundEventRegister.AMETHYST_CLUSTER);
     }
 
     @Override

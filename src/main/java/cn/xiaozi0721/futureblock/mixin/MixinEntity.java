@@ -11,7 +11,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -34,17 +33,16 @@ public abstract class MixinEntity implements IGetBlock {
     @Inject(method = "move", at = @At(value = "INVOKE", target = "Lnet/minecraft/profiler/Profiler;endSection()V", ordinal = 1))
     private void applySpeedFactor(MoverType type, double x, double y, double z, CallbackInfo ci){
         float speedFactor = getSpeedFactor();
-        Vec3d vec3d = new Vec3d(this.motionX * speedFactor, this.motionY, this.motionZ * speedFactor);
-        this.setVelocity(vec3d.x, vec3d.y, vec3d.z);
+        this.setVelocity(this.motionX * speedFactor, this.motionY, this.motionZ * speedFactor);
     }
 
     @Unique
     public float getSpeedFactor(){
-        float speedFactor = ((IBlockSpeedFactor)getBlockBelow(0)).getSpeedFactor();
-        float lowerBlockSpeedFactor = ((IBlockSpeedFactor)getBlockBelow(0.5)).getSpeedFactor();
+        float speedFactor = ((IBlockSpeedFactor)getBlockBelow()).getSpeedFactor();
+        float lowerBlockSpeedFactor = ((IBlockSpeedFactor)getBlockBelow(0.5D)).getSpeedFactor();
         boolean isFlying = (Entity)(Object)this instanceof EntityPlayer && ((EntityPlayer)(Object)this).capabilities.isFlying;
         boolean isElytraFlying = (Entity)(Object)this instanceof EntityLivingBase && ((EntityLivingBase)(Object)this).isElytraFlying();
-        return !isFlying && !isElytraFlying && speedFactor == 1 ? lowerBlockSpeedFactor : speedFactor;
+        return !isFlying && !isElytraFlying && speedFactor == 1.0F ? lowerBlockSpeedFactor : speedFactor;
     }
 
     @Override
@@ -59,7 +57,7 @@ public abstract class MixinEntity implements IGetBlock {
 
     @Override
     public boolean isUponHoneyBlock(){
-        Block block = this.getBlockBelow(0);
+        Block block = this.getBlockBelow();
         return block instanceof BlockBaseHoney;
     }
 }

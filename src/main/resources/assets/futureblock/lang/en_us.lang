@@ -1,3 +1,5 @@
+itemGroup.futureblock.tab=Future Block
+
 tile.futureblock.block.small_amethyst_bud.name=Small Amethyst Bud
 tile.futureblock.block.medium_amethyst_bud.name=Medium Amethyst Bud
 tile.futureblock.block.large_amethyst_bud.name=Large Amethyst Bud
@@ -8,7 +10,24 @@ tile.futureblock.block.honey.name=Honey Block
 tile.futureblock.block.honey_netease.name=Honey Block (NetEase)
 tile.futureblock.block.honey_be.name=Honey Block (BE)
 tile.futureblock.block.sniffer_egg.name=Sniffer Egg
+tile.futureblock.block.candle.name=Candle
+tile.futureblock.block.white_candle.name=White Candle
+tile.futureblock.block.orange_candle.name=Orange Candle
+tile.futureblock.block.magenta_candle.name=Magenta Candle
+tile.futureblock.block.light_blue_candle.name=Light Blue Candle
+tile.futureblock.block.yellow_candle.name=Yellow Candle
+tile.futureblock.block.lime_candle.name=Lime Candle
+tile.futureblock.block.pink_candle.name=Pink Candle
+tile.futureblock.block.gray_candle.name=Gray Candle
+tile.futureblock.block.light_gray_candle.name=Light Gray Candle
+tile.futureblock.block.cyan_candle.name=Cyan Candle
+tile.futureblock.block.purple_candle.name=Purple Candle
+tile.futureblock.block.blue_candle.name=Blue Candle
+tile.futureblock.block.brown_candle.name=Brown Candle
+tile.futureblock.block.green_candle.name=Green Candle
+tile.futureblock.block.red_candle.name=Red Candle
+tile.futureblock.block.black_candle.name=Black Candle
 
-itemGroup.futureblock.tab=Future Block
-
-subtitles.honey.slide=Sliding down a honey block
+subtitles.block.honey.slide=Sliding down a honey block
+subtitles.block.candle.crackle=Candle crackles
+subtitles.block.candle.extinguish=Candle extinguishes

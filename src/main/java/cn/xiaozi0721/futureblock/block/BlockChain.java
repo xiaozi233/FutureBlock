@@ -1,11 +1,12 @@
 package cn.xiaozi0721.futureblock.block;
 
+import cn.xiaozi0721.futureblock.FutureBlock;
 import cn.xiaozi0721.futureblock.Tags;
+import cn.xiaozi0721.futureblock.sound.SoundEventRegister;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -15,10 +16,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import static cn.xiaozi0721.futureblock.FutureBlock.FUTUREBLOCK_TAB;
-import static cn.xiaozi0721.futureblock.sound.SoundEventRegister.CHAIN;
 
-@SuppressWarnings(value={"deprecation", "NullableProblems"})
+@SuppressWarnings({"deprecation", "NullableProblems"})
 public class BlockChain extends BlockRotatedPillar {
     protected static final AxisAlignedBB Y_AXIS_AABB = new AxisAlignedBB(0.40625D, 0.0D, 0.40625D, 0.59375D, 1.0D, 0.59375D);
     protected static final AxisAlignedBB Z_AXIS_AABB = new AxisAlignedBB(0.40625D, 0.40625D, 0.0D, 0.59375D, 0.59375D, 1.0D);
@@ -28,11 +27,10 @@ public class BlockChain extends BlockRotatedPillar {
         super(Material.IRON);
         String name = "chain";
         this.setRegistryName(Tags.MOD_ID, name);
-        this.setCreativeTab(FUTUREBLOCK_TAB);
+        this.setCreativeTab(FutureBlock.FUTUREBLOCK_TAB);
         this.setTranslationKey(Tags.MOD_ID + ".block." + name);
         this.setDefaultState(this.blockState.getBaseState().withProperty(AXIS, EnumFacing.Axis.X));
-        this.setLightOpacity(0);
-        this.setSoundType(CHAIN);
+        this.setSoundType(SoundEventRegister.CHAIN);
     }
 
     @Override

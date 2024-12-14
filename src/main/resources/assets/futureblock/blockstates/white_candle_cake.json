@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "futureblock:white_candle_cake"
+    },
+    "lit=true": {
+      "model": "futureblock:white_candle_cake_lit"
+    }
+  }
+}

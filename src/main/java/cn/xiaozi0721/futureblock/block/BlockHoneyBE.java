@@ -8,7 +8,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-@SuppressWarnings(value={"deprecation", "NullableProblems"})
+@SuppressWarnings({"deprecation", "NullableProblems"})
 public class BlockHoneyBE extends BlockBaseHoney{
     protected static final AxisAlignedBB HONEY_AABB = new AxisAlignedBB(0.0625D, 0.0D, 0.0625D, 0.9375D, 1D, 0.9735D);
 

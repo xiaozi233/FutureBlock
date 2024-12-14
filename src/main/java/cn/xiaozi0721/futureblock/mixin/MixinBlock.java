@@ -7,7 +7,7 @@ import org.spongepowered.asm.mixin.Unique;
 
 @Mixin(Block.class)
 public abstract class MixinBlock implements IBlockSpeedFactor {
-    @Unique float speedFactor = 1.0F;
+    @Unique public float speedFactor = 1.0F;
 
     @Override
     public float getSpeedFactor() {

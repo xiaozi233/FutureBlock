@@ -1,0 +1,7 @@
+{
+  "parent": "futureblock:block/template_two_candles",
+  "textures": {
+    "all": "futureblock:blocks/black_candle_lit",
+    "particle": "futureblock:blocks/black_candle_lit"
+  }
+}

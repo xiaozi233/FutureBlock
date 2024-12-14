@@ -7,10 +7,10 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 
-@SuppressWarnings(value={"deprecation", "NullableProblems"})
+@SuppressWarnings({"deprecation", "NullableProblems"})
 public class BlockHoney extends BlockBaseHoney implements IBlockSpeedFactor {
     protected static final AxisAlignedBB HONEY_AABB = new AxisAlignedBB(0.0625D, 0.0D, 0.0625D, 0.9375D, 0.9375D, 0.9735D);
-
+    public float speedFactor = 0.4F;
     public BlockHoney(){
         String name = "honey";
         this.setRegistryName(Tags.MOD_ID, name);
@@ -24,6 +24,6 @@ public class BlockHoney extends BlockBaseHoney implements IBlockSpeedFactor {
 
     @Override
     public float getSpeedFactor() {
-        return 0.4F;
+        return speedFactor;
     }
 }

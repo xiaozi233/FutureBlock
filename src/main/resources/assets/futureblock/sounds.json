@@ -1,5 +1,5 @@
 {
-  "amethyst_cluster.place": {
+  "block.amethyst_cluster.place": {
     "category": "block",
     "subtitle": "subtitles.block.generic.place",
     "sounds": [
@@ -9,7 +9,7 @@
       "futureblock:block/amethyst/place4"
     ]
   },
-  "amethyst_cluster.break": {
+  "block.amethyst_cluster.break": {
     "category": "block",
     "subtitle": "subtitles.block.generic.break",
     "sounds": [
@@ -19,7 +19,7 @@
       "futureblock:block/amethyst/break4"
     ]
   },
-  "amethyst_cluster.step": {
+  "block.amethyst_cluster.step": {
     "category": "block",
     "subtitle": "subtitles.block.generic.footsteps",
     "sounds": [
@@ -39,7 +39,7 @@
       "futureblock:block/amethyst/step14"
     ]
   },
-  "amethyst_cluster.fall": {
+  "block.amethyst_cluster.fall": {
     "category": "block",
     "sounds": [
       "futureblock:block/amethyst/step1",
@@ -57,7 +57,7 @@
       "futureblock:block/amethyst/step14"
     ]
   },
-  "amethyst_cluster.hit": {
+  "block.amethyst_cluster.hit": {
     "category": "block",
     "subtitle": "subtitles.block.generic.hit",
     "sounds": [
@@ -75,7 +75,7 @@
       "futureblock:block/amethyst/step12"
     ]
   },
-  "chain.place": {
+  "block.chain.place": {
     "category": "block",
     "subtitle": "subtitles.block.generic.place",
     "sounds": [
@@ -97,7 +97,7 @@
       }
     ]
   },
-  "chain.break": {
+  "block.chain.break": {
     "category": "block",
     "subtitle": "subtitles.block.generic.break",
     "sounds": [
@@ -119,7 +119,7 @@
       }
     ]
   },
-  "chain.step": {
+  "block.chain.step": {
     "category": "block",
     "subtitle": "subtitles.block.generic.footsteps",
     "sounds": [
@@ -131,7 +131,7 @@
       "futureblock:block/chain/step6"
     ]
   },
-  "chain.fall": {
+  "block.chain.fall": {
     "category": "block",
     "sounds": [
       "futureblock:block/chain/step1",
@@ -142,7 +142,7 @@
       "futureblock:block/chain/step6"
     ]
   },
-  "chain.hit": {
+  "block.chain.hit": {
     "category": "block",
     "subtitle": "subtitles.block.generic.hit",
     "sounds": [
@@ -173,7 +173,7 @@
       }
     ]
   },
-  "honey.break": {
+  "block.honey.break": {
     "sounds": [
       "futureblock:block/honey/break1",
       "futureblock:block/honey/break2",
@@ -183,7 +183,7 @@
     ],
     "subtitle": "subtitles.block.generic.break"
   },
-  "honey.fall": {
+  "block.honey.fall": {
     "sounds": [
       "futureblock:block/honey/step1",
       "futureblock:block/honey/step2",
@@ -192,7 +192,7 @@
       "futureblock:block/honey/step5"
     ]
   },
-  "honey.hit": {
+  "block.honey.hit": {
     "sounds": [
       "futureblock:block/honey/step1",
       "futureblock:block/honey/step2",
@@ -202,7 +202,7 @@
     ],
     "subtitle": "subtitles.block.generic.hit"
   },
-  "honey.place": {
+  "block.honey.place": {
     "sounds": [
       "futureblock:block/honey/break1",
       "futureblock:block/honey/break2",
@@ -212,7 +212,7 @@
     ],
     "subtitle": "subtitles.block.generic.place"
   },
-  "honey.slide": {
+  "block.honey.slide": {
     "sounds": [
       {
         "name": "futureblock:block/honey/slide1",
@@ -251,15 +251,312 @@
         "volume": 0.8
       }
     ],
-    "subtitle": "subtitles.honey.slide"
+    "subtitle": "subtitles.block.honey.slide"
   },
-  "honey.step": {
+  "block.honey.step": {
     "sounds": [
       "futureblock:block/honey/step1",
       "futureblock:block/honey/step2",
       "futureblock:block/honey/step3",
       "futureblock:block/honey/step4",
       "futureblock:block/honey/step5"
+    ],
+    "subtitle": "subtitles.block.generic.footsteps"
+  },
+  "block.candle.ambient": {
+    "sounds": [
+      {
+        "attenuation_distance": 3,
+        "name": "futureblock:block/candle/ambient1"
+      },
+      {
+        "attenuation_distance": 3,
+        "name": "futureblock:block/candle/ambient1",
+        "pitch": 0.8,
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 3,
+        "name": "futureblock:block/candle/ambient1",
+        "pitch": 0.9,
+        "volume": 0.8
+      },
+      {
+        "attenuation_distance": 3,
+        "name": "futureblock:block/candle/ambient2"
+      },
+      {
+        "attenuation_distance": 3,
+        "name": "futureblock:block/candle/ambient2",
+        "pitch": 0.8,
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 3,
+        "name": "futureblock:block/candle/ambient2",
+        "pitch": 0.9,
+        "volume": 0.8
+      },
+      {
+        "attenuation_distance": 3,
+        "name": "futureblock:block/candle/ambient3"
+      },
+      {
+        "attenuation_distance": 3,
+        "name": "futureblock:block/candle/ambient3",
+        "pitch": 0.8,
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 3,
+        "name": "futureblock:block/candle/ambient3",
+        "pitch": 0.9,
+        "volume": 0.8
+      },
+      {
+        "attenuation_distance": 3,
+        "name": "futureblock:block/candle/ambient4"
+      },
+      {
+        "attenuation_distance": 3,
+        "name": "futureblock:block/candle/ambient4",
+        "pitch": 0.8,
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 3,
+        "name": "futureblock:block/candle/ambient4",
+        "pitch": 0.9,
+        "volume": 0.8
+      },
+      {
+        "attenuation_distance": 3,
+        "name": "futureblock:block/candle/ambient5"
+      },
+      {
+        "attenuation_distance": 3,
+        "name": "futureblock:block/candle/ambient5",
+        "pitch": 0.8,
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 3,
+        "name": "futureblock:block/candle/ambient5",
+        "pitch": 0.9,
+        "volume": 0.8
+      },
+      {
+        "attenuation_distance": 3,
+        "name": "futureblock:block/candle/ambient6"
+      },
+      {
+        "attenuation_distance": 3,
+        "name": "futureblock:block/candle/ambient6",
+        "pitch": 0.8,
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 3,
+        "name": "futureblock:block/candle/ambient6",
+        "pitch": 0.9,
+        "volume": 0.8
+      },
+      {
+        "attenuation_distance": 3,
+        "name": "futureblock:block/candle/ambient7"
+      },
+      {
+        "attenuation_distance": 3,
+        "name": "futureblock:block/candle/ambient7",
+        "pitch": 0.8,
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 3,
+        "name": "futureblock:block/candle/ambient7",
+        "pitch": 0.9,
+        "volume": 0.8
+      },
+      {
+        "attenuation_distance": 3,
+        "name": "futureblock:block/candle/ambient8"
+      },
+      {
+        "attenuation_distance": 3,
+        "name": "futureblock:block/candle/ambient8",
+        "pitch": 0.8,
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 3,
+        "name": "futureblock:block/candle/ambient8",
+        "pitch": 0.9,
+        "volume": 0.8
+      },
+      {
+        "attenuation_distance": 3,
+        "name": "futureblock:block/candle/ambient9"
+      },
+      {
+        "attenuation_distance": 3,
+        "name": "futureblock:block/candle/ambient9",
+        "pitch": 0.8,
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 3,
+        "name": "futureblock:block/candle/ambient9",
+        "pitch": 0.9,
+        "volume": 0.8
+      }
+    ],
+    "subtitle": "subtitles.block.candle.crackle"
+  },
+  "block.candle.break": {
+    "sounds": [
+      "futureblock:block/candle/break1",
+      "futureblock:block/candle/break2",
+      "futureblock:block/candle/break3",
+      "futureblock:block/candle/break4",
+      "futureblock:block/candle/break5"
+    ],
+    "subtitle": "subtitles.block.generic.break"
+  },
+  "block.candle.extinguish": {
+    "sounds": [
+      {
+        "attenuation_distance": 8,
+        "name": "futureblock:block/candle/extinguish1"
+      },
+      {
+        "attenuation_distance": 8,
+        "name": "futureblock:block/candle/extinguish1",
+        "volume": 0.9
+      },
+      {
+        "attenuation_distance": 8,
+        "name": "futureblock:block/candle/extinguish1",
+        "pitch": 0.9
+      },
+      {
+        "attenuation_distance": 8,
+        "name": "futureblock:block/candle/extinguish1",
+        "pitch": 0.9,
+        "volume": 0.9
+      },
+      {
+        "attenuation_distance": 8,
+        "name": "futureblock:block/candle/extinguish1",
+        "pitch": 1.1
+      },
+      {
+        "attenuation_distance": 8,
+        "name": "futureblock:block/candle/extinguish1",
+        "pitch": 1.1,
+        "volume": 0.9
+      },
+      {
+        "attenuation_distance": 8,
+        "name": "futureblock:block/candle/extinguish2"
+      },
+      {
+        "attenuation_distance": 8,
+        "name": "futureblock:block/candle/extinguish2",
+        "volume": 0.9
+      },
+      {
+        "attenuation_distance": 8,
+        "name": "futureblock:block/candle/extinguish2",
+        "pitch": 0.9
+      },
+      {
+        "attenuation_distance": 8,
+        "name": "futureblock:block/candle/extinguish2",
+        "pitch": 0.9,
+        "volume": 0.9
+      },
+      {
+        "attenuation_distance": 8,
+        "name": "futureblock:block/candle/extinguish2",
+        "pitch": 1.1
+      },
+      {
+        "attenuation_distance": 8,
+        "name": "futureblock:block/candle/extinguish2",
+        "pitch": 1.1,
+        "volume": 0.9
+      },
+      {
+        "attenuation_distance": 8,
+        "name": "futureblock:block/candle/extinguish3"
+      },
+      {
+        "attenuation_distance": 8,
+        "name": "futureblock:block/candle/extinguish3",
+        "volume": 0.9
+      },
+      {
+        "attenuation_distance": 8,
+        "name": "futureblock:block/candle/extinguish3",
+        "pitch": 0.9
+      },
+      {
+        "attenuation_distance": 8,
+        "name": "futureblock:block/candle/extinguish3",
+        "pitch": 0.9,
+        "volume": 0.9
+      },
+      {
+        "attenuation_distance": 8,
+        "name": "futureblock:block/candle/extinguish3",
+        "pitch": 1.1
+      },
+      {
+        "attenuation_distance": 8,
+        "name": "futureblock:block/candle/extinguish3",
+        "pitch": 1.1,
+        "volume": 0.9
+      }
+    ],
+    "subtitle": "subtitles.block.candle.extinguish"
+  },
+  "block.candle.fall": {
+    "sounds": [
+      "futureblock:block/candle/step1",
+      "futureblock:block/candle/step2",
+      "futureblock:block/candle/step3",
+      "futureblock:block/candle/step4",
+      "futureblock:block/candle/step5"
+    ],
+    "subtitle": "subtitles.block.generic.fall"
+  },
+  "block.candle.hit": {
+    "sounds": [
+      "futureblock:block/candle/step1",
+      "futureblock:block/candle/step2",
+      "futureblock:block/candle/step3",
+      "futureblock:block/candle/step4",
+      "futureblock:block/candle/step5"
+    ],
+    "subtitle": "subtitles.block.generic.hit"
+  },
+  "block.candle.place": {
+    "sounds": [
+      "futureblock:block/candle/break1",
+      "futureblock:block/candle/break2",
+      "futureblock:block/candle/break3",
+      "futureblock:block/candle/break4",
+      "futureblock:block/candle/break5"
+    ],
+    "subtitle": "subtitles.block.generic.place"
+  },
+  "block.candle.step": {
+    "sounds": [
+      "futureblock:block/candle/step1",
+      "futureblock:block/candle/step2",
+      "futureblock:block/candle/step3",
+      "futureblock:block/candle/step4",
+      "futureblock:block/candle/step5"
     ],
     "subtitle": "subtitles.block.generic.footsteps"
   }

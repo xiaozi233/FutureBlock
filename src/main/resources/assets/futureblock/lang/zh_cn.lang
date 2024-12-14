@@ -1,3 +1,5 @@
+itemGroup.futureblock.tab=Future Block
+
 tile.futureblock.block.small_amethyst_bud.name=小型紫晶芽
 tile.futureblock.block.medium_amethyst_bud.name=中型紫晶芽
 tile.futureblock.block.large_amethyst_bud.name=大型紫晶芽
@@ -8,7 +10,25 @@ tile.futureblock.block.honey.name=蜂蜜块
 tile.futureblock.block.honey_netease.name=蜂蜜块（网易版）
 tile.futureblock.block.honey_be.name=蜂蜜块（基岩版）
 tile.futureblock.block.sniffer_egg.name=嗅探兽蛋
+tile.futureblock.block.candle.name=蜡烛
+tile.futureblock.block.white_candle.name=白色蜡烛
+tile.futureblock.block.orange_candle.name=橙色蜡烛
+tile.futureblock.block.magenta_candle.name=品红色蜡烛
+tile.futureblock.block.light_blue_candle.name=淡蓝色蜡烛
+tile.futureblock.block.yellow_candle.name=黄色蜡烛
+tile.futureblock.block.lime_candle.name=黄绿色蜡烛
+tile.futureblock.block.pink_candle.name=粉色蜡烛
+tile.futureblock.block.gray_candle.name=灰色蜡烛
+tile.futureblock.block.light_gray_candle.name=淡灰色蜡烛
+tile.futureblock.block.cyan_candle.name=青色蜡烛
+tile.futureblock.block.purple_candle.name=紫色蜡烛
+tile.futureblock.block.blue_candle.name=蓝色蜡烛
+tile.futureblock.block.brown_candle.name=棕色蜡烛
+tile.futureblock.block.green_candle.name=绿色蜡烛
+tile.futureblock.block.red_candle.name=红色蜡烛
+tile.futureblock.block.black_candle.name=黑色蜡烛
 
-itemGroup.futureblock.tab=Future Block
 
-subtitles.honey.slide=从蜂蜜块滑下
+subtitles.block.honey.slide=从蜂蜜块滑下
+subtitles.block.candle.crackle=蜡烛：噼啪作响
+subtitles.block.candle.extinguish=蜡烛：熄灭

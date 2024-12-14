@@ -1,5 +1,7 @@
 package cn.xiaozi0721.futureblock.block;
 
+import cn.xiaozi0721.futureblock.FutureBlock;
+import cn.xiaozi0721.futureblock.sound.SoundEventRegister;
 import net.minecraft.block.BlockBreakable;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -19,16 +21,12 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import static cn.xiaozi0721.futureblock.FutureBlock.FUTUREBLOCK_TAB;
-import static cn.xiaozi0721.futureblock.sound.SoundEventRegister.HONEY;
-import static cn.xiaozi0721.futureblock.sound.SoundEventRegister.HONEY_SLIDE;
-
-@SuppressWarnings(value={"deprecation", "NullableProblems"})
+@SuppressWarnings({"deprecation", "NullableProblems"})
 public abstract class BlockBaseHoney extends BlockBreakable {
     protected BlockBaseHoney() {
         super(Material.CLAY, false, MapColor.ADOBE);
-        this.setCreativeTab(FUTUREBLOCK_TAB);
-        this.setSoundType(HONEY);
+        this.setCreativeTab(FutureBlock.FUTUREBLOCK_TAB);
+        this.setSoundType(SoundEventRegister.HONEY);
     }
 
     private static boolean hasHoneyBlockEffects(Entity entityIn) {
@@ -55,7 +53,7 @@ public abstract class BlockBaseHoney extends BlockBreakable {
 
     @Override
     public void onFallenUpon(World worldIn, BlockPos pos, Entity entityIn, float fallDistance) {
-        entityIn.playSound(HONEY_SLIDE, 1.0F, 1.0F);
+        entityIn.playSound(SoundEventRegister.HONEY_SLIDE, 1.0F, 1.0F);
         entityIn.fall(fallDistance, 0.2F);
         if (worldIn.isRemote) {
             spawnParticles(entityIn, 10);
@@ -99,7 +97,7 @@ public abstract class BlockBaseHoney extends BlockBreakable {
     private void addCollisionEffects(World worldIn, Entity entityIn) {
         if (hasHoneyBlockEffects(entityIn)) {
             if (worldIn.rand.nextInt(5) == 0) {
-                entityIn.playSound(HONEY_SLIDE, 1.0F, 1.0F);
+                entityIn.playSound(SoundEventRegister.HONEY_SLIDE, 1.0F, 1.0F);
             }
             if (worldIn.isRemote && worldIn.rand.nextInt(5) == 0) {
                 spawnParticles(entityIn, 5);

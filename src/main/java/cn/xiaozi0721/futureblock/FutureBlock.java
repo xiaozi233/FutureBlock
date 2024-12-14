@@ -1,5 +1,6 @@
 package cn.xiaozi0721.futureblock;
 
+import cn.xiaozi0721.futureblock.particle.ParticleRegister;
 import cn.xiaozi0721.futureblock.proxy.CommonProxy;
 import cn.xiaozi0721.futureblock.tab.FutureBlockTab;
 import net.minecraft.creativetab.CreativeTabs;
@@ -29,7 +30,7 @@ public class FutureBlock {
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
-
+        ParticleRegister.registerParticles();
     }
 
     @Mod.EventHandler

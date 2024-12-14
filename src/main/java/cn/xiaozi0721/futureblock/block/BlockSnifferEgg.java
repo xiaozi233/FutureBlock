@@ -1,24 +1,21 @@
 package cn.xiaozi0721.futureblock.block;
 
+import cn.xiaozi0721.futureblock.FutureBlock;
 import cn.xiaozi0721.futureblock.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.Entity;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
-import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import static cn.xiaozi0721.futureblock.FutureBlock.FUTUREBLOCK_TAB;
 
-@SuppressWarnings(value={"deprecation", "NullableProblems"})
+@SuppressWarnings({"deprecation", "NullableProblems"})
 public class BlockSnifferEgg extends Block {
     protected static final AxisAlignedBB SNIFFER_EGG_AABB = new AxisAlignedBB(0.0625D, 0.0D, 0.125D, 0.9375D, 1D, 0.875D);
 
@@ -26,7 +23,7 @@ public class BlockSnifferEgg extends Block {
         super(Material.DRAGON_EGG);
         String name = "sniffer_egg";
         this.setRegistryName(Tags.MOD_ID, name);
-        this.setCreativeTab(FUTUREBLOCK_TAB);
+        this.setCreativeTab(FutureBlock.FUTUREBLOCK_TAB);
         this.setTranslationKey(Tags.MOD_ID + ".block." + name);
         this.setHardness(0.5F);
         this.setResistance(0.5F);
