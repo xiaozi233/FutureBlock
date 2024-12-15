@@ -5,7 +5,6 @@ import cn.xiaozi0721.futureblock.block.*;
 import cn.xiaozi0721.futureblock.item.ItemCandle;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
-import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -17,12 +16,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import javax.xml.bind.SchemaOutputResolver;
-import java.util.Map;
 import java.util.Objects;
-
-import static net.minecraft.init.Items.getRegisteredItem;
-
 
 @Mod.EventBusSubscriber(modid = Tags.MOD_ID)
 public final class BlocksRegister {
