@@ -52,8 +52,8 @@ public class BlockCandle extends BlockIgnitable {
             new AxisAlignedBB(0.3125, 0.0, 0.3125, 0.6875, 0.375, 0.625),
     };
 
-    public BlockCandle(Material material, MapColor mapColor){
-        super(material, mapColor);
+    public BlockCandle(MapColor mapColor){
+        super(Material.CIRCUITS, mapColor);
         this.setDefaultState(this.blockState.getBaseState().withProperty(LIT, Boolean.valueOf(false)).withProperty(CANDLES, Integer.valueOf(1)));
         this.setHardness(0.1F);
         this.setSoundType(SoundEventRegister.CANDLE);
@@ -89,34 +89,6 @@ public class BlockCandle extends BlockIgnitable {
     @Override @SideOnly(Side.CLIENT)
     public BlockRenderLayer getRenderLayer() {
         return BlockRenderLayer.CUTOUT;
-    }
-
-    @Override @SideOnly(Side.CLIENT)
-    public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
-        if (stateIn.getValue(LIT)){
-            this.getParticleOffsets(stateIn).forEach(offset -> spawnCandleParticles(worldIn, offset.add((double)pos.getX(), (double)pos.getY(), (double)pos.getZ()), rand));
-        }
-    }
-
-    private static void spawnCandleParticles(World worldIn, Vec3d vec3d, Random rand) {
-        float f = rand.nextFloat();
-        if (f < 0.3F) {
-            worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, vec3d.x, vec3d.y, vec3d.z, 0.0, 0.0, 0.0);
-            if (f < 0.17F) {
-                worldIn.playSound(
-                        vec3d.x + 0.5,
-                        vec3d.y + 0.5,
-                        vec3d.z + 0.5,
-                        SoundEventRegister.CANDLE_AMBIENT,
-                        SoundCategory.BLOCKS,
-                        1.0F + rand.nextFloat(),
-                        rand.nextFloat() * 0.7F + 0.3F,
-                        false
-                );
-            }
-        }
-
-        worldIn.spawnParticle(ParticleRegister.SMALL_FLAME, vec3d.x, vec3d.y, vec3d.z, 0.0, 0.0, 0.0);
     }
 
     @Override
@@ -162,6 +134,7 @@ public class BlockCandle extends BlockIgnitable {
         return state.getValue(LIT) ? state.getValue(CANDLES) * 3 : 0;
     }
 
+    @Override
     protected Iterable<Vec3d> getParticleOffsets(IBlockState state) {
         return (Iterable<Vec3d>)CANDLES_TO_PARTICLE_OFFSETS.get(((Integer)state.getValue(CANDLES)).intValue());
     }

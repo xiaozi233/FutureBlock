@@ -10,12 +10,7 @@ public class ParticleRegister {
     public static EnumParticleTypes SMALL_FLAME;
 
     public static void registerParticles(){
-        SMALL_FLAME = registerParticle(
-                "SMALL_FLAME",
-                "small_Flame",
-                true,
-                new ParticleSmallFlame.SmallFactory()
-        );
+        SMALL_FLAME = registerParticle("SMALL_FLAME", "small_Flame", true, new ParticleSmallFlame.SmallFactory());
     }
 
     private static EnumParticleTypes registerParticle(String enumName, String particleName, boolean alwaysShow, IParticleFactory factory) {
