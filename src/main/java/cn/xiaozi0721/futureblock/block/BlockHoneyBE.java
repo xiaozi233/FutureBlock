@@ -30,7 +30,6 @@ public class BlockHoneyBE extends BlockBaseHoney{
         if (!entityIn.isSneaking())
         {
             double d0 = 0.4D + Math.abs((entityIn.motionY - 0.08) * 0.98) * 0.2D;
-            System.out.println(d0);
             entityIn.motionX *= d0;
             entityIn.motionZ *= d0;
         }

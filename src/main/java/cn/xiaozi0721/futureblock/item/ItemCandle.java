@@ -79,7 +79,6 @@ public class ItemCandle extends ItemBlock {
     public boolean canPlaceBlockOnSide(World world, BlockPos pos, EnumFacing side, EntityPlayer player, ItemStack stack)
     {
         IBlockState state = world.getBlockState(pos);
-        System.out.println((state.getBlock() != BlocksRegister.CANDLE || ((Integer)state.getValue(BlockCandle.CANDLES)) > 3));
         return state.getBlock() instanceof BlockCandle && ((Integer) state.getValue(BlockCandle.CANDLES)) <= 3 || super.canPlaceBlockOnSide(world, pos, side, player, stack);
     }
 }
