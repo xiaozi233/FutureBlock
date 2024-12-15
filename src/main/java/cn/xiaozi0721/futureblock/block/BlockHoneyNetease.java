@@ -7,13 +7,15 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 
 @SuppressWarnings({"deprecation", "NullableProblems"})
-public class BlockHoneyNetease extends BlockBaseHoney{
+public class BlockHoneyNetease extends BlockBaseHoney {
     protected static final AxisAlignedBB HONEY_AABB = new AxisAlignedBB(0.0625D, 0.0D, 0.0625D, 0.9375D, 1D, 0.9735D);
 
     public BlockHoneyNetease(){
         String name = "honey_netease";
         this.setRegistryName(Tags.MOD_ID, name);
         this.slipperiness = 0.8F;
+        this.speedFactor = 1F;
+        this.jumpSpeedFactor = 0.6F;
         this.setTranslationKey(Tags.MOD_ID + ".block." + name);
     }
 

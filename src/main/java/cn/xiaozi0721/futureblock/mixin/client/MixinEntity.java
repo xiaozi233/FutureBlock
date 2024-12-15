@@ -1,7 +1,7 @@
 package cn.xiaozi0721.futureblock.mixin.client;
 
+import cn.xiaozi0721.futureblock.interfaces.IApplySpeedFactor;
 import cn.xiaozi0721.futureblock.interfaces.IBlockSpeedFactor;
-import cn.xiaozi0721.futureblock.interfaces.IGetBlock;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.MoverType;
@@ -28,8 +28,8 @@ public abstract class MixinEntity {
 
     @Unique
     public float getSpeedFactor(){
-        float speedFactor = ((IBlockSpeedFactor)((IGetBlock)this).getBlockBelow()).getSpeedFactor();
-        float lowerBlockSpeedFactor = ((IBlockSpeedFactor)((IGetBlock)(this)).getBlockBelow(0.5D)).getSpeedFactor();
+        float speedFactor = ((IBlockSpeedFactor)((IApplySpeedFactor)this).getBlockBelow()).getSpeedFactor();
+        float lowerBlockSpeedFactor = ((IBlockSpeedFactor)((IApplySpeedFactor)this).getBlockBelow(0.5D)).getSpeedFactor();
         boolean isFlying = (Entity)(Object)this instanceof EntityPlayer && ((EntityPlayer)(Object)this).capabilities.isFlying;
         boolean isElytraFlying = (Entity)(Object)this instanceof EntityLivingBase && ((EntityLivingBase)(Object)this).isElytraFlying();
         return !isFlying && !isElytraFlying && speedFactor == 1.0F ? lowerBlockSpeedFactor : speedFactor;

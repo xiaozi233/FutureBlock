@@ -1,6 +1,7 @@
 package cn.xiaozi0721.futureblock.block;
 
 import cn.xiaozi0721.futureblock.FutureBlock;
+import cn.xiaozi0721.futureblock.interfaces.IBlockSpeedFactor;
 import cn.xiaozi0721.futureblock.sound.SoundEventRegister;
 import net.minecraft.block.BlockBreakable;
 import net.minecraft.block.material.MapColor;
@@ -22,7 +23,9 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SuppressWarnings({"deprecation", "NullableProblems"})
-public abstract class BlockBaseHoney extends BlockBreakable {
+public abstract class BlockBaseHoney extends BlockBreakable implements IBlockSpeedFactor {
+    public float speedFactor = 0.4F;
+    public float jumpSpeedFactor = 0.5F;
     protected BlockBaseHoney() {
         super(Material.CLAY, false, MapColor.ADOBE);
         this.setCreativeTab(FutureBlock.FUTUREBLOCK_TAB);
@@ -112,5 +115,15 @@ public abstract class BlockBaseHoney extends BlockBreakable {
                     0.0, 0.0, 0.0, getStateId(getDefaultState())
             );
         }
+    }
+
+    @Override
+    public float getSpeedFactor() {
+        return speedFactor;
+    }
+
+    @Override
+    public float getJumpSpeedFactor() {
+        return jumpSpeedFactor;
     }
 }

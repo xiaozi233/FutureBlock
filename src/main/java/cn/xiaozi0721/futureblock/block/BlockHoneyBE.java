@@ -9,7 +9,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 @SuppressWarnings({"deprecation", "NullableProblems"})
-public class BlockHoneyBE extends BlockBaseHoney{
+public class BlockHoneyBE extends BlockBaseHoney {
     protected static final AxisAlignedBB HONEY_AABB = new AxisAlignedBB(0.0625D, 0.0D, 0.0625D, 0.9375D, 1D, 0.9735D);
 
     public BlockHoneyBE(){
@@ -17,6 +17,8 @@ public class BlockHoneyBE extends BlockBaseHoney{
         this.setRegistryName(Tags.MOD_ID, name);
         this.slipperiness = 0.8F;
         this.setTranslationKey(Tags.MOD_ID + ".block." + name);
+        this.speedFactor = 1F;
+        this.jumpSpeedFactor = 0.6F;
     }
 
     @Override
