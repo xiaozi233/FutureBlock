@@ -1,7 +1,7 @@
 package cn.xiaozi0721.futureblock.item;
 
 import cn.xiaozi0721.futureblock.block.BlockCandle;
-import cn.xiaozi0721.futureblock.block.BlocksRegister;
+import cn.xiaozi0721.futureblock.register.BlocksRegister;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -71,10 +71,6 @@ public class ItemCandle extends ItemBlock {
         }
     }
 
-    /**
-     * Converts the given ItemStack damage value into a metadata value to be placed in the world when this Item is
-     * placed as a Block (mostly used with ItemBlocks).
-     */
     public int getMetadata(int damage)
     {
         return damage;

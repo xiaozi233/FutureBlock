@@ -25,25 +25,6 @@ public abstract class MixinEntity implements IGetBlock {
     @Shadow public double posZ;
     @Shadow public World world;
     @Shadow public abstract AxisAlignedBB getEntityBoundingBox();
-    @Shadow public abstract void setVelocity(double x, double y, double z);
-    @Shadow public double motionX;
-    @Shadow public double motionY;
-    @Shadow public double motionZ;
-
-    @Inject(method = "move", at = @At(value = "INVOKE", target = "Lnet/minecraft/profiler/Profiler;endSection()V", ordinal = 1))
-    private void applySpeedFactor(MoverType type, double x, double y, double z, CallbackInfo ci){
-        float speedFactor = getSpeedFactor();
-        this.setVelocity(this.motionX * speedFactor, this.motionY, this.motionZ * speedFactor);
-    }
-
-    @Unique
-    public float getSpeedFactor(){
-        float speedFactor = ((IBlockSpeedFactor)getBlockBelow()).getSpeedFactor();
-        float lowerBlockSpeedFactor = ((IBlockSpeedFactor)getBlockBelow(0.5D)).getSpeedFactor();
-        boolean isFlying = (Entity)(Object)this instanceof EntityPlayer && ((EntityPlayer)(Object)this).capabilities.isFlying;
-        boolean isElytraFlying = (Entity)(Object)this instanceof EntityLivingBase && ((EntityLivingBase)(Object)this).isElytraFlying();
-        return !isFlying && !isElytraFlying && speedFactor == 1.0F ? lowerBlockSpeedFactor : speedFactor;
-    }
 
     @Override
     public Block getBlockBelow(double deltaY){

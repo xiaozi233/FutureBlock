@@ -15,10 +15,8 @@ public class ParticleSmallFlame extends ParticleFlame {
     }
 
     @SideOnly(Side.CLIENT)
-    public static class SmallFactory implements IParticleFactory
-    {
-        public Particle createParticle(int particleID, World worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeedIn, double ySpeedIn, double zSpeedIn, int... p_178902_15_)
-        {
+    public static class SmallFactory implements IParticleFactory {
+        public Particle createParticle(int particleID, World worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeedIn, double ySpeedIn, double zSpeedIn, int... p_178902_15_) {
             return new ParticleSmallFlame(worldIn, xCoordIn, yCoordIn, zCoordIn, xSpeedIn, ySpeedIn, zSpeedIn);
         }
     }

@@ -1,6 +1,6 @@
 package cn.xiaozi0721.futureblock.tab;
 
-import cn.xiaozi0721.futureblock.block.BlocksRegister;
+import cn.xiaozi0721.futureblock.register.BlocksRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 

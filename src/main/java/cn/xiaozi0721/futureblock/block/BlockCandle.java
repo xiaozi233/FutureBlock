@@ -1,6 +1,6 @@
 package cn.xiaozi0721.futureblock.block;
 
-import cn.xiaozi0721.futureblock.particle.ParticleRegister;
+import cn.xiaozi0721.futureblock.register.ParticleRegister;
 import cn.xiaozi0721.futureblock.sound.SoundEventRegister;
 import cn.xiaozi0721.futureblock.util.Util;
 import com.google.common.collect.ImmutableList;

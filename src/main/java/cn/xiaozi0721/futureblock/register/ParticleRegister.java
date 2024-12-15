@@ -1,5 +1,6 @@
-package cn.xiaozi0721.futureblock.particle;
+package cn.xiaozi0721.futureblock.register;
 
+import cn.xiaozi0721.futureblock.particle.ParticleSmallFlame;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.client.particle.IParticleFactory;
@@ -20,7 +21,6 @@ public class ParticleRegister {
     private static EnumParticleTypes registerParticle(String enumName, String particleName, boolean alwaysShow, IParticleFactory factory) {
         int id = EnumParticleTypes.values().length;
         EnumParticleTypes particle = EnumHelper.addEnum(EnumParticleTypes.class, enumName, new Class[]{String.class, int.class, boolean.class}, particleName, id, alwaysShow);
-        System.out.println("FUCK " + particle);
 
         EnumParticleTypes.PARTICLES.put(id, particle);
         EnumParticleTypes.BY_NAME.put(particleName, particle);

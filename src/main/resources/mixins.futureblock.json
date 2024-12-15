@@ -14,8 +14,10 @@
     "MixinEntitySlime"
   ],
   "client": [
+    "client.MixinEntity"
   ],
-  "server": [],
+  "server": [
+  ],
   "injectors": {
     "defaultRequire": 1
   }

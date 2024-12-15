@@ -1,6 +1,7 @@
-package cn.xiaozi0721.futureblock.block;
+package cn.xiaozi0721.futureblock.register;
 
 import cn.xiaozi0721.futureblock.Tags;
+import cn.xiaozi0721.futureblock.block.*;
 import cn.xiaozi0721.futureblock.item.ItemCandle;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
@@ -8,15 +9,18 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.registries.IForgeRegistry;
 
 import java.util.Objects;
 
-@SuppressWarnings(value={"unused"})
 @Mod.EventBusSubscriber(modid = Tags.MOD_ID)
 public final class BlocksRegister {
     public static final Block AMETHYST_CLUSTER = new BlockAmethystCluster();
@@ -48,19 +52,15 @@ public final class BlocksRegister {
     public static final Block RED_CANDLE = registerCandle(14);
     public static final Block BLACK_CANDLE = registerCandle(15);
 
-    public BlocksRegister() {
-        MinecraftForge.EVENT_BUS.register(this);
-    }
-
-    private static final Block[] blocks = {
-            AMETHYST_CLUSTER, SMALL_AMETHYST_BUD, MEDIUM_AMETHYST_BUD, LARGE_AMETHYST_BUD,
+    public static final Block[] blocks = {
+            SMALL_AMETHYST_BUD, MEDIUM_AMETHYST_BUD, LARGE_AMETHYST_BUD, AMETHYST_CLUSTER,
             BE_STRUCTURE_VOID,
             CHAIN,
             HONEY, HONEY_NETEASE, HONEY_BE,
             SNIFFER_EGG
     };
 
-    private static final Block[] candles = {
+    public static final Block[] candles = {
             CANDLE, WHITE_CANDLE, ORANGE_CANDLE, MAGENTA_CANDLE, LIGHT_BLUE_CANDLE, YELLOW_CANDLE,
             LIME_CANDLE, PINK_CANDLE, GRAY_CANDLE, LIGHT_GRAY_CANDLE, CYAN_CANDLE, PURPLE_CANDLE,
             BLUE_CANDLE, BROWN_CANDLE, GREEN_CANDLE, RED_CANDLE, BLACK_CANDLE
@@ -70,11 +70,9 @@ public final class BlocksRegister {
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
         for (Block block : blocks) {
             event.getRegistry().register(block);
-            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), 0, new ModelResourceLocation(Objects.requireNonNull(block.getRegistryName()), "inventory"));
         }
         for (Block block : candles) {
             event.getRegistry().register(block);
-            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), 0, new ModelResourceLocation(Objects.requireNonNull(block.getRegistryName()), "inventory"));
         }
     }
 
@@ -83,14 +81,24 @@ public final class BlocksRegister {
         Item itemBlock;
         for (Block block : blocks) {
             itemBlock = new ItemBlock(block).setRegistryName(Objects.requireNonNull(block.getRegistryName()));
-            event.getRegistry().register(itemBlock);
-            ModelLoader.setCustomModelResourceLocation(itemBlock, 0, new ModelResourceLocation(block.getRegistryName(), "inventory"));
+                event.getRegistry().register(itemBlock);
         }
         for (Block candle : candles){
             itemBlock = new ItemCandle(candle).setRegistryName(Objects.requireNonNull(candle.getRegistryName()));
             event.getRegistry().register(itemBlock);
-            ModelLoader.setCustomModelResourceLocation(itemBlock, 0, new ModelResourceLocation(candle.getRegistryName(), "inventory"));
         }
+    }
+
+    @SideOnly(Side.CLIENT)
+    @SubscribeEvent
+    public static void onModelRegister(ModelRegistryEvent event)
+    {
+       for (Block block : blocks){
+           ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), 0, new ModelResourceLocation(Objects.requireNonNull(block.getRegistryName()), "inventory"));
+       }
+       for (Block candle : candles){
+           ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(candle), 0, new ModelResourceLocation(Objects.requireNonNull(candle.getRegistryName()), "inventory"));
+       }
     }
 
     private static Block registerCandle(int color){
