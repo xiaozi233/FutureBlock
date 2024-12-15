@@ -25,18 +25,15 @@ public class BlockAmethystCluster extends BlockBaseAmethystCluster {
     }
 
     @Override
-    public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
-    {
+    public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
         return this.getDefaultState().withProperty(FACING, facing);
     }
 
     @Override
-    public AxisAlignedBB getBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos)
-    {
+    public AxisAlignedBB getBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos) {
         AxisAlignedBB axisalignedbb;
         EnumFacing enumfacing = (EnumFacing)blockState.getValue(FACING);
-        switch (enumfacing)
-        {
+        switch (enumfacing) {
             case NORTH:
             default:
                 axisalignedbb = AABB_NORTH;

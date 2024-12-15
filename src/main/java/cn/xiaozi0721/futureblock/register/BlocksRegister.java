@@ -17,7 +17,12 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import javax.xml.bind.SchemaOutputResolver;
+import java.util.Map;
 import java.util.Objects;
+
+import static net.minecraft.init.Items.getRegisteredItem;
+
 
 @Mod.EventBusSubscriber(modid = Tags.MOD_ID)
 public final class BlocksRegister {
@@ -50,18 +55,42 @@ public final class BlocksRegister {
     public static final Block RED_CANDLE = registerCandle(14);
     public static final Block BLACK_CANDLE = registerCandle(15);
 
-    public static final Block[] blocks = {
+    public static final Block CANDLE_CAKE = registerCandleCake(-1);
+    public static final Block WHITE_CANDLE_CAKE = registerCandleCake(0);
+    public static final Block ORANGE_CANDLE_CAKE = registerCandleCake(1);
+    public static final Block MAGENTA_CANDLE_CAKE = registerCandleCake(2);
+    public static final Block LIGHT_BLUE_CANDLE_CAKE = registerCandleCake(3);
+    public static final Block YELLOW_CANDLE_CAKE = registerCandleCake(4);
+    public static final Block LIME_CANDLE_CAKE = registerCandleCake(5);
+    public static final Block PINK_CANDLE_CAKE = registerCandleCake(6);
+    public static final Block GRAY_CANDLE_CAKE = registerCandleCake(7);
+    public static final Block LIGHT_GRAY_CANDLE_CAKE = registerCandleCake(8);
+    public static final Block CYAN_CANDLE_CAKE = registerCandleCake(9);
+    public static final Block PURPLE_CANDLE_CAKE = registerCandleCake(10);
+    public static final Block BLUE_CANDLE_CAKE = registerCandleCake(11);
+    public static final Block BROWN_CANDLE_CAKE = registerCandleCake(12);
+    public static final Block GREEN_CANDLE_CAKE = registerCandleCake(13);
+    public static final Block RED_CANDLE_CAKE = registerCandleCake(14);
+    public static final Block BLACK_CANDLE_CAKE = registerCandleCake(15);
+    private static final Block[] blocks = {
             SMALL_AMETHYST_BUD, MEDIUM_AMETHYST_BUD, LARGE_AMETHYST_BUD, AMETHYST_CLUSTER,
             BE_STRUCTURE_VOID,
             CHAIN,
             HONEY, HONEY_NETEASE, HONEY_BE,
-            SNIFFER_EGG
+            SNIFFER_EGG,
+            CANDLE_CAKE
     };
 
-    public static final Block[] candles = {
+    private static final Block[] candles = {
             CANDLE, WHITE_CANDLE, ORANGE_CANDLE, MAGENTA_CANDLE, LIGHT_BLUE_CANDLE, YELLOW_CANDLE,
             LIME_CANDLE, PINK_CANDLE, GRAY_CANDLE, LIGHT_GRAY_CANDLE, CYAN_CANDLE, PURPLE_CANDLE,
             BLUE_CANDLE, BROWN_CANDLE, GREEN_CANDLE, RED_CANDLE, BLACK_CANDLE
+    };
+
+    private static final Block[] candleCakes = {
+            CANDLE_CAKE, WHITE_CANDLE_CAKE, ORANGE_CANDLE_CAKE, MAGENTA_CANDLE_CAKE, LIGHT_BLUE_CANDLE_CAKE, YELLOW_CANDLE_CAKE,
+            LIME_CANDLE_CAKE, PINK_CANDLE_CAKE, GRAY_CANDLE_CAKE, LIGHT_GRAY_CANDLE_CAKE, CYAN_CANDLE_CAKE, PURPLE_CANDLE_CAKE,
+            BLUE_CANDLE_CAKE, BROWN_CANDLE_CAKE, GREEN_CANDLE_CAKE, RED_CANDLE_CAKE, BLACK_CANDLE_CAKE
     };
     
     @SubscribeEvent
@@ -72,6 +101,9 @@ public final class BlocksRegister {
         for (Block block : candles) {
             event.getRegistry().register(block);
         }
+        for (Block block : candleCakes){
+            event.getRegistry().register(block);
+        }
     }
 
     @SubscribeEvent
@@ -79,7 +111,7 @@ public final class BlocksRegister {
         Item itemBlock;
         for (Block block : blocks) {
             itemBlock = new ItemBlock(block).setRegistryName(Objects.requireNonNull(block.getRegistryName()));
-                event.getRegistry().register(itemBlock);
+            event.getRegistry().register(itemBlock);
         }
         for (Block candle : candles){
             itemBlock = new ItemCandle(candle).setRegistryName(Objects.requireNonNull(candle.getRegistryName()));
@@ -102,7 +134,14 @@ public final class BlocksRegister {
     private static Block registerCandle(int color){
         String name = getColorName("candle", color);
         MapColor mapColor = getMapColor(color);
-        return new BlockCandle(Material.CIRCUITS, mapColor).setRegistryName(Tags.MOD_ID, name).setTranslationKey(Tags.MOD_ID + ".block." + name);
+        return new BlockCandle(mapColor).setRegistryName(Tags.MOD_ID, name).setTranslationKey(Tags.MOD_ID + ".block." + name);
+    }
+
+    private static Block registerCandleCake(int color){
+        String name = getColorName("candle_cake", color);
+        MapColor mapColor = getMapColor(color);
+        Block candle = getBlockCandle(color);
+        return new BlockCandleCake(candle,mapColor).setRegistryName(Tags.MOD_ID, name).setTranslationKey(Tags.MOD_ID + ".block." + name);
     }
 
     private static String getColorName(String name, int color){
@@ -146,6 +185,28 @@ public final class BlocksRegister {
             case 14: return MapColor.RED;
             case 15: return MapColor.BLACK;
             default: return MapColor.WHITE_STAINED_HARDENED_CLAY;
+        }
+    }
+
+    private static Block getBlockCandle(int color){
+        switch (color){
+            case 0: return WHITE_CANDLE;
+            case 1: return ORANGE_CANDLE;
+            case 2: return MAGENTA_CANDLE;
+            case 3: return LIGHT_BLUE_CANDLE;
+            case 4: return YELLOW_CANDLE;
+            case 5: return LIME_CANDLE;
+            case 6: return PINK_CANDLE;
+            case 7: return GRAY_CANDLE;
+            case 8: return LIGHT_GRAY_CANDLE;
+            case 9: return CYAN_CANDLE;
+            case 10: return PURPLE_CANDLE;
+            case 11: return BLUE_CANDLE;
+            case 12: return BROWN_CANDLE;
+            case 13: return GREEN_CANDLE;
+            case 14: return RED_CANDLE;
+            case 15: return BLACK_CANDLE;
+            default: return CANDLE;
         }
     }
 

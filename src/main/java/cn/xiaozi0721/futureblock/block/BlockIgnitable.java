@@ -1,6 +1,8 @@
 package cn.xiaozi0721.futureblock.block;
 
 import cn.xiaozi0721.futureblock.FutureBlock;
+import cn.xiaozi0721.futureblock.register.ParticleRegister;
+import cn.xiaozi0721.futureblock.sound.SoundEventRegister;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -14,14 +16,21 @@ import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+
+import java.util.Random;
 
 
 @SuppressWarnings({"NullableProblems"})
 public abstract class BlockIgnitable extends Block {
     public static final PropertyBool LIT = PropertyBool.create("lit");
+    protected abstract Iterable<Vec3d> getParticleOffsets(IBlockState state);
 
     public BlockIgnitable(Material material, MapColor mapColor) {
         super(material, mapColor);
@@ -58,5 +67,33 @@ public abstract class BlockIgnitable extends Block {
     protected BlockStateContainer createBlockState()
     {
         return new BlockStateContainer(this, new IProperty[] {LIT});
+    }
+
+    @Override @SideOnly(Side.CLIENT)
+    public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
+        if (stateIn.getValue(LIT)){
+            this.getParticleOffsets(stateIn).forEach(offset -> spawnCandleParticles(worldIn, offset.add((double)pos.getX(), (double)pos.getY(), (double)pos.getZ()), rand));
+        }
+    }
+
+    private static void spawnCandleParticles(World worldIn, Vec3d vec3d, Random rand) {
+        float f = rand.nextFloat();
+        if (f < 0.3F) {
+            worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, vec3d.x, vec3d.y, vec3d.z, 0.0, 0.0, 0.0);
+            if (f < 0.17F) {
+                worldIn.playSound(
+                        vec3d.x + 0.5,
+                        vec3d.y + 0.5,
+                        vec3d.z + 0.5,
+                        SoundEventRegister.CANDLE_AMBIENT,
+                        SoundCategory.BLOCKS,
+                        1.0F + rand.nextFloat(),
+                        rand.nextFloat() * 0.7F + 0.3F,
+                        false
+                );
+            }
+        }
+
+        worldIn.spawnParticle(ParticleRegister.SMALL_FLAME, vec3d.x, vec3d.y, vec3d.z, 0.0, 0.0, 0.0);
     }
 }
