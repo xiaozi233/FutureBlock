@@ -38,13 +38,13 @@ public class BlockCandleCake extends BlockIgnitable{
     protected static final AxisAlignedBB CANDLE_CAKE_AABB = CAKE_AABB.union(CANDLE_AABB);
     private static final Iterable<Vec3d> PARTICLE_OFFSETS = ImmutableList.<Vec3d>of(new Vec3d(0.5, 1.0, 0.5));
     private static final Map<BlockCandle, BlockCandleCake> CANDLES_TO_CANDLE_CAKES = Maps.<BlockCandle, BlockCandleCake>newHashMap();
-    private final Item modelItem;
+    private final Block modelBlock;
 
     public BlockCandleCake(Block modelBlock, MapColor mapColor) {
         super(Material.CAKE, mapColor);
         this.setHardness(0.5F);
         if (modelBlock instanceof BlockCandle) {
-            this.modelItem = Item.getItemFromBlock(modelBlock);
+            this.modelBlock = modelBlock;
             CANDLES_TO_CANDLE_CAKES.put((BlockCandle) modelBlock, this);
         } else {
             throw new IllegalArgumentException("Expected block to be of " + BlockCandle.class + " was " + modelBlock.getClass());
@@ -131,7 +131,7 @@ public class BlockCandleCake extends BlockIgnitable{
 
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        return modelItem;
+        return Item.getItemFromBlock(modelBlock);
     }
 
     @Override
