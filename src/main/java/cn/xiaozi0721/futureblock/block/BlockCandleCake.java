@@ -1,9 +1,9 @@
 package cn.xiaozi0721.futureblock.block;
 
-import cn.xiaozi0721.futureblock.Tags;
 import cn.xiaozi0721.futureblock.sound.SoundEventRegister;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCake;
 import net.minecraft.block.SoundType;
@@ -14,7 +14,6 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatList;
@@ -27,16 +26,10 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
-import java.util.Collections;
-import java.util.List;
-import java.util.Objects;
-import java.util.Random;
+import java.util.*;
 
-import static net.minecraft.block.BlockCake.BITES;
 
 @SuppressWarnings({"deprecation", "NullableProblems"})
 public class BlockCandleCake extends BlockIgnitable{
@@ -44,11 +37,17 @@ public class BlockCandleCake extends BlockIgnitable{
     protected static final AxisAlignedBB CANDLE_AABB = new AxisAlignedBB(0.4375D, 0.5D, 0.4375D, 0.5625D, 0.875D, 0.5625D);
     protected static final AxisAlignedBB CANDLE_CAKE_AABB = CAKE_AABB.union(CANDLE_AABB);
     private static final Iterable<Vec3d> PARTICLE_OFFSETS = ImmutableList.<Vec3d>of(new Vec3d(0.5, 1.0, 0.5));
-    private final Block modelBlock;
+    private final Item modelItem;
+    private static final Map<BlockCandle, BlockCandleCake> CANDLES_TO_CANDLE_CAKES = Maps.<BlockCandle, BlockCandleCake>newHashMap();
     public BlockCandleCake(Block modelBlock, MapColor mapColor) {
         super(Material.CAKE, mapColor);
         this.setHardness(0.5F);
-        this.modelBlock = modelBlock;
+        if (modelBlock instanceof BlockCandle) {
+            this.modelItem = Item.getItemFromBlock(modelBlock);
+            CANDLES_TO_CANDLE_CAKES.put((BlockCandle) modelBlock, this);
+        } else {
+            throw new IllegalArgumentException("Expected block to be of " + BlockCandle.class + " was " + modelBlock.getClass());
+        }
         this.setSoundType(SoundType.CLOTH);
     }
 
@@ -131,7 +130,7 @@ public class BlockCandleCake extends BlockIgnitable{
 
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        return Item.getItemFromBlock(modelBlock);
+        return modelItem;
     }
 
     @Override
@@ -157,10 +156,14 @@ public class BlockCandleCake extends BlockIgnitable{
             player.addStat(StatList.CAKE_SLICES_EATEN);
             player.getFoodStats().addStats(2, 0.1F);
 
-            worldIn.setBlockState(pos,  Blocks.CAKE.getDefaultState().withProperty(BITES, Integer.valueOf(1)), 3);
+            worldIn.setBlockState(pos, Blocks.CAKE.getDefaultState().withProperty(BlockCake.BITES, Integer.valueOf(1)), 3);
             this.dropBlockAsItem(worldIn, pos, state, 0);
 
             return true;
         }
+    }
+
+    public static IBlockState getCandleCakeFromCandle(BlockCandle candle) {
+        return ((BlockCandleCake)CANDLES_TO_CANDLE_CAKES.get(candle)).getDefaultState();
     }
 }

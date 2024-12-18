@@ -66,13 +66,13 @@ public final class BlocksRegister {
     public static final Block GREEN_CANDLE_CAKE = registerCandleCake(13);
     public static final Block RED_CANDLE_CAKE = registerCandleCake(14);
     public static final Block BLACK_CANDLE_CAKE = registerCandleCake(15);
+
     private static final Block[] blocks = {
             SMALL_AMETHYST_BUD, MEDIUM_AMETHYST_BUD, LARGE_AMETHYST_BUD, AMETHYST_CLUSTER,
             BE_STRUCTURE_VOID,
             CHAIN,
             HONEY, HONEY_NETEASE, HONEY_BE,
-            SNIFFER_EGG,
-            CANDLE_CAKE
+            SNIFFER_EGG
     };
 
     private static final Block[] candles = {
