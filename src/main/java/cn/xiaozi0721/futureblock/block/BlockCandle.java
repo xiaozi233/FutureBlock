@@ -1,6 +1,5 @@
 package cn.xiaozi0721.futureblock.block;
 
-import cn.xiaozi0721.futureblock.register.ParticleRegister;
 import cn.xiaozi0721.futureblock.sound.SoundEventRegister;
 import cn.xiaozi0721.futureblock.util.Util;
 import com.google.common.collect.ImmutableList;
@@ -39,9 +38,7 @@ public class BlockCandle extends BlockIgnitable {
                 int2ObjectMap.put(1, ImmutableList.of(new Vec3d(0.5, 0.5, 0.5)));
                 int2ObjectMap.put(2, ImmutableList.of(new Vec3d(0.375, 0.44, 0.5), new Vec3d(0.625, 0.5, 0.44)));
                 int2ObjectMap.put(3, ImmutableList.of(new Vec3d(0.5, 0.313, 0.625), new Vec3d(0.375, 0.44, 0.5), new Vec3d(0.56, 0.5, 0.44)));
-                int2ObjectMap.put(
-                        4, ImmutableList.of(new Vec3d(0.44, 0.313, 0.56), new Vec3d(0.625, 0.44, 0.56), new Vec3d(0.375, 0.44, 0.375), new Vec3d(0.56, 0.5, 0.375))
-                );
+                int2ObjectMap.put(4, ImmutableList.of(new Vec3d(0.44, 0.313, 0.56), new Vec3d(0.625, 0.44, 0.56), new Vec3d(0.375, 0.44, 0.375), new Vec3d(0.56, 0.5, 0.375)));
                 return Int2ObjectMaps.unmodifiable(int2ObjectMap);
             }
     );

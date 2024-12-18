@@ -1,8 +1,8 @@
 package cn.xiaozi0721.futureblock.item;
 
 import cn.xiaozi0721.futureblock.block.BlockCandle;
+import cn.xiaozi0721.futureblock.block.BlockCandleCake;
 import cn.xiaozi0721.futureblock.block.BlockIgnitable;
-import cn.xiaozi0721.futureblock.register.BlocksRegister;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCake;
@@ -71,8 +71,9 @@ public class ItemCandle extends ItemBlock {
 
                 if (i==0){
                     AxisAlignedBB axisalignedbb = iblockstate.getCollisionBoundingBox(worldIn, blockpos);
-                    Block candleCake = getBlockCandle(itemstack.getTranslationKey());
-                    IBlockState iblockstate1 = candleCake.getDefaultState();
+
+                    IBlockState iblockstate1 = BlockCandleCake.getCandleCakeFromCandle((BlockCandle) Block.getBlockFromItem(itemstack.getItem()));
+                    Block candleCake = iblockstate1.getBlock();
 
                     if (axisalignedbb != Block.NULL_AABB && worldIn.checkNoEntityCollision(axisalignedbb.offset(blockpos)) && worldIn.setBlockState(pos, candleCake.getDefaultState().withProperty(BlockIgnitable.LIT, Boolean.valueOf(false)), 3)) {
                         SoundType soundtype = this.block.getSoundType(iblockstate1, worldIn, pos, player);
@@ -106,25 +107,5 @@ public class ItemCandle extends ItemBlock {
         IBlockState state = world.getBlockState(pos);
         Block block = state.getBlock();
         return block == Blocks.CAKE && state.getValue(BlockCake.BITES) == 0|| block instanceof BlockCandle && ((Integer) state.getValue(BlockCandle.CANDLES)) <= 3 || super.canPlaceBlockOnSide(world, pos, side, player, stack);
-    }
-
-    private static Block getBlockCandle(String candleName){
-        if (candleName.contains("white")) return BlocksRegister.WHITE_CANDLE_CAKE;
-        else if (candleName.contains("orange")) return BlocksRegister.ORANGE_CANDLE_CAKE;
-        else if (candleName.contains("magenta")) return BlocksRegister.MAGENTA_CANDLE_CAKE;
-        else if (candleName.contains("light_blue")) return BlocksRegister.LIGHT_BLUE_CANDLE_CAKE;
-        else if (candleName.contains("yellow")) return BlocksRegister.YELLOW_CANDLE_CAKE;
-        else if (candleName.contains("lime")) return BlocksRegister.LIME_CANDLE_CAKE;
-        else if (candleName.contains("pink")) return BlocksRegister.PINK_CANDLE_CAKE;
-        else if (candleName.contains("gray")) return BlocksRegister.GRAY_CANDLE_CAKE;
-        else if (candleName.contains("light_gray")) return BlocksRegister.LIGHT_GRAY_CANDLE_CAKE;
-        else if (candleName.contains("cyan")) return BlocksRegister.CYAN_CANDLE_CAKE;
-        else if (candleName.contains("purple")) return BlocksRegister.PURPLE_CANDLE_CAKE;
-        else if (candleName.contains("blue")) return BlocksRegister.BLUE_CANDLE_CAKE;
-        else if (candleName.contains("brown")) return BlocksRegister.BROWN_CANDLE_CAKE;
-        else if (candleName.contains("green")) return BlocksRegister.GREEN_CANDLE_CAKE;
-        else if (candleName.contains("red")) return BlocksRegister.RED_CANDLE_CAKE;
-        else if (candleName.contains("black")) return BlocksRegister.BLACK_CANDLE_CAKE;
-        else return BlocksRegister.CANDLE_CAKE;
     }
 }

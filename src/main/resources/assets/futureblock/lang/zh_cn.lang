@@ -27,6 +27,23 @@ tile.futureblock.block.brown_candle.name=棕色蜡烛
 tile.futureblock.block.green_candle.name=绿色蜡烛
 tile.futureblock.block.red_candle.name=红色蜡烛
 tile.futureblock.block.black_candle.name=黑色蜡烛
+tile.futureblock.block.candle_cake.name=蜡烛蛋糕
+tile.futureblock.block.white_candle_cake.name=白色蜡烛蛋糕
+tile.futureblock.block.orange_candle_cake.name=橙色蜡烛蛋糕
+tile.futureblock.block.magenta_candle_cake.name=品红色蜡烛蛋糕
+tile.futureblock.block.light_blue_candle_cake.name=淡蓝色蜡烛蛋糕
+tile.futureblock.block.yellow_candle_cake.name=黄色蜡烛蛋糕
+tile.futureblock.block.lime_candle_cake.name=黄绿色蜡烛蛋糕
+tile.futureblock.block.pink_candle_cake.name=粉色蜡烛蛋糕
+tile.futureblock.block.gray_candle_cake.name=灰色蜡烛蛋糕
+tile.futureblock.block.light_gray_candle_cake.name=淡灰色蜡烛蛋糕
+tile.futureblock.block.cyan_candle_cake.name=青色蜡烛蛋糕
+tile.futureblock.block.purple_candle_cake.name=紫色蜡烛蛋糕
+tile.futureblock.block.blue_candle_cake.name=蓝色蜡烛蛋糕
+tile.futureblock.block.brown_candle_cake.name=棕色蜡烛蛋糕
+tile.futureblock.block.green_candle_cake.name=绿色蜡烛蛋糕
+tile.futureblock.block.red_candle_cake.name=红色蜡烛蛋糕
+tile.futureblock.block.black_candle_cake.name=黑色蜡烛蛋糕
 
 
 subtitles.block.honey.slide=从蜂蜜块滑下
