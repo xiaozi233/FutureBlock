@@ -1,6 +1,6 @@
 package cn.xiaozi0721.futureblock.block;
 
-import cn.xiaozi0721.futureblock.sound.SoundEventRegister;
+import cn.xiaozi0721.futureblock.register.SoundEventRegister;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
@@ -31,7 +31,7 @@ import javax.annotation.Nullable;
 import java.util.*;
 
 
-@SuppressWarnings({"deprecation", "NullableProblems"})
+@SuppressWarnings({"deprecation", "NullableProblems", "UnnecessaryBoxing"})
 public class BlockCandleCake extends BlockIgnitable{
     protected static final AxisAlignedBB CAKE_AABB = new AxisAlignedBB(0.0625D, 0.0D, 0.0625D, 0.9375D, 0.5D, 0.9375D);
     protected static final AxisAlignedBB CANDLE_AABB = new AxisAlignedBB(0.4375D, 0.5D, 0.4375D, 0.5625D, 0.875D, 0.5625D);
@@ -165,6 +165,6 @@ public class BlockCandleCake extends BlockIgnitable{
     }
 
     public static IBlockState getCandleCakeFromCandle(BlockCandle candle) {
-        return ((BlockCandleCake)CANDLES_TO_CANDLE_CAKES.get(candle)).getDefaultState();
+        return CANDLES_TO_CANDLE_CAKES.get(candle).getDefaultState();
     }
 }

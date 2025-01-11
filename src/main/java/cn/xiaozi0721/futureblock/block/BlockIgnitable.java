@@ -2,7 +2,7 @@ package cn.xiaozi0721.futureblock.block;
 
 import cn.xiaozi0721.futureblock.FutureBlock;
 import cn.xiaozi0721.futureblock.register.ParticleRegister;
-import cn.xiaozi0721.futureblock.sound.SoundEventRegister;
+import cn.xiaozi0721.futureblock.register.SoundEventRegister;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -27,12 +27,12 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import java.util.Random;
 
 
-@SuppressWarnings({"NullableProblems"})
+@SuppressWarnings({"NullableProblems", "UnnecessaryBoxing"})
 public abstract class BlockIgnitable extends Block {
     public static final PropertyBool LIT = PropertyBool.create("lit");
     protected abstract Iterable<Vec3d> getParticleOffsets(IBlockState state);
 
-    public BlockIgnitable(Material material, MapColor mapColor) {
+    protected BlockIgnitable(Material material, MapColor mapColor) {
         super(material, mapColor);
         this.setDefaultState(this.blockState.getBaseState().withProperty(LIT, Boolean.valueOf(false)));
         this.setCreativeTab(FutureBlock.FUTUREBLOCK_TAB);

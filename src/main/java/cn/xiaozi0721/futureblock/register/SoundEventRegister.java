@@ -1,4 +1,4 @@
-package cn.xiaozi0721.futureblock.sound;
+package cn.xiaozi0721.futureblock.register;
 
 import cn.xiaozi0721.futureblock.Tags;
 import net.minecraft.block.SoundType;

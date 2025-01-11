@@ -135,7 +135,7 @@ public final class BlocksRegister {
         String name = getColorName("candle_cake", color);
         MapColor mapColor = getMapColor(color);
         Block candle = getBlockCandle(color);
-        return new BlockCandleCake(candle,mapColor).setRegistryName(Tags.MOD_ID, name).setTranslationKey(Tags.MOD_ID + ".block." + name);
+        return new BlockCandleCake(candle, mapColor).setRegistryName(Tags.MOD_ID, name).setTranslationKey(Tags.MOD_ID + ".block." + name);
     }
 
     private static String getColorName(String name, int color){
@@ -203,5 +203,4 @@ public final class BlocksRegister {
             default: return CANDLE;
         }
     }
-
 }

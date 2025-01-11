@@ -8,11 +8,7 @@ import net.minecraftforge.fml.relauncher.Side;
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class ClientProxy extends CommonProxy{
     @Override
-    public void preInit(){
-    }
-
-    @Override
     public void init() {
-        ParticleRegister.registerParticles();
+        ParticleRegister.init();
     }
 }

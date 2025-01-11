@@ -2,7 +2,7 @@ package cn.xiaozi0721.futureblock.block;
 
 import cn.xiaozi0721.futureblock.FutureBlock;
 import cn.xiaozi0721.futureblock.interfaces.IBlockSpeedFactor;
-import cn.xiaozi0721.futureblock.sound.SoundEventRegister;
+import cn.xiaozi0721.futureblock.register.SoundEventRegister;
 import net.minecraft.block.BlockBreakable;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -13,6 +13,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityBoat;
 import net.minecraft.entity.item.EntityMinecart;
 import net.minecraft.entity.item.EntityTNTPrimed;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumParticleTypes;
@@ -26,6 +27,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public abstract class BlockBaseHoney extends BlockBreakable implements IBlockSpeedFactor {
     public float speedFactor = 0.4F;
     public float jumpSpeedFactor = 0.5F;
+
     protected BlockBaseHoney() {
         super(Material.CLAY, false, MapColor.ADOBE);
         this.setCreativeTab(FutureBlock.FUTUREBLOCK_TAB);
@@ -75,26 +77,26 @@ public abstract class BlockBaseHoney extends BlockBreakable implements IBlockSpe
     private boolean isSliding(BlockPos pos, Entity entityIn) {
         if (entityIn.onGround) {
             return false;
-        } else if (entityIn.posY > (double) pos.getY() + 0.9375 - 1.0E-7) {
+        } else if (entityIn.posY > (double) pos.getY() + 0.9375D - 1.0E-7) {
             return false;
-        } else if (entityIn.motionY >= -0.08) {
+        } else if (entityIn.motionY >= -0.08D) {
             return false;
         } else {
-            double distanceX = Math.abs((double) pos.getX() + 0.5 - entityIn.posX);
-            double distanceZ = Math.abs((double) pos.getZ() + 0.5 - entityIn.posZ);
-            double distanceToEdge = 0.4375 + (double) (entityIn.width / 2.0F);
+            double distanceX = Math.abs((double) pos.getX() + 0.5D - entityIn.posX);
+            double distanceZ = Math.abs((double) pos.getZ() + 0.5D - entityIn.posZ);
+            double distanceToEdge = 0.4375D + (double) (entityIn.width / 2.0F);
             return distanceX + 1.0E-7 > distanceToEdge || distanceZ + 1.0E-7 > distanceToEdge;
         }
     }
 
     private void updateSlidingVelocity(Entity entityIn) {
-        if (entityIn.motionY < -0.13) {
-            double mult = -0.05 / entityIn.motionY;
+        if (entityIn.motionY < -0.13D) {
+            double mult = -0.05D / entityIn.motionY;
             entityIn.motionX *= mult;
             entityIn.motionZ *= mult;
         }
-        entityIn.motionY = -0.05;
-        entityIn.fallDistance = 0;
+        entityIn.motionY = -0.05D;
+        entityIn.fallDistance = 0.0F;
     }
 
     private void addCollisionEffects(World worldIn, Entity entityIn) {
@@ -112,7 +114,7 @@ public abstract class BlockBaseHoney extends BlockBreakable implements IBlockSpe
         for (int i = 0; i < particleCount; i++) {
             entityIn.world.spawnParticle(
                     EnumParticleTypes.BLOCK_CRACK, entityIn.posX, entityIn.posY, entityIn.posZ,
-                    0.0, 0.0, 0.0, getStateId(getDefaultState())
+                    0.0D, 0.0D, 0.0D, getStateId(getDefaultState())
             );
         }
     }

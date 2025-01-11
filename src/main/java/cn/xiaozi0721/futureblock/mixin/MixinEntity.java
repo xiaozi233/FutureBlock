@@ -23,30 +23,30 @@ public abstract class MixinEntity implements IApplySpeedFactor {
     @Shadow public double posX;
     @Shadow public double posZ;
     @Shadow public World world;
-    @Shadow public abstract AxisAlignedBB getEntityBoundingBox();
     @Shadow public double motionX;
     @Shadow public double motionZ;
+    @Shadow public abstract AxisAlignedBB getEntityBoundingBox();
 
     @Inject(method = "move", at = @At(value = "INVOKE", target = "Lnet/minecraft/profiler/Profiler;endSection()V", ordinal = 1))
     private void applySpeedFactor(MoverType type, double x, double y, double z, CallbackInfo ci){
-        float speedFactor = getSpeedFactor();
+        float speedFactor = futureblock$getSpeedFactor();
         this.motionX *= speedFactor;
         this.motionZ *= speedFactor;
     }
 
     @Unique
-    public float getSpeedFactor(){
+    public float futureblock$getSpeedFactor(){
         float speedFactor = ((IBlockSpeedFactor)this.getBlockBelow()).getSpeedFactor();
-        float lowerBlockSpeedFactor = ((IBlockSpeedFactor)this.getBlockBelow(0.5D)).getSpeedFactor();
+        float lowerBlockSpeedFactor = ((IBlockSpeedFactor)this.futureblock$getBlockBelow(0.5D)).getSpeedFactor();
         boolean isFlying = (Entity)(Object)this instanceof EntityPlayer && ((EntityPlayer)(Object)this).capabilities.isFlying;
         boolean isElytraFlying = (Entity)(Object)this instanceof EntityLivingBase && ((EntityLivingBase)(Object)this).isElytraFlying();
         return isFlying || isElytraFlying ? 1.0F : speedFactor == 1.0F ? lowerBlockSpeedFactor : speedFactor;
     }
 
     @Override
-    public Block getBlockBelow(double deltaY){
+    public Block futureblock$getBlockBelow(double deltaY){
         int posX = MathHelper.floor(this.posX);
-        int posY = MathHelper.floor(this.getEntityBoundingBox().minY - deltaY - 1.0E-7);
+        int posY = MathHelper.floor(this.getEntityBoundingBox().minY - deltaY);
         int posZ = MathHelper.floor(this.posZ);
 
         BlockPos blockpos = new BlockPos(posX, posY, posZ);
@@ -54,9 +54,9 @@ public abstract class MixinEntity implements IApplySpeedFactor {
     }
 
     @Override
-    public float getJumpSpeedFactor(){
+    public float futureblock$getJumpSpeedFactor(){
         float jumpSpeedFactor = ((IBlockSpeedFactor)(this).getBlockBelow()).getJumpSpeedFactor();
-        float lowerBlockJumpSpeedFactor = ((IBlockSpeedFactor)(this).getBlockBelow(0.5D)).getJumpSpeedFactor();
+        float lowerBlockJumpSpeedFactor = ((IBlockSpeedFactor)(this).futureblock$getBlockBelow(0.5D)).getJumpSpeedFactor();
         return jumpSpeedFactor == 1.0F ? lowerBlockJumpSpeedFactor : jumpSpeedFactor;
     }
 }

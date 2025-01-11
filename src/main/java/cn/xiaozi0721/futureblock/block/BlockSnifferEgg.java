@@ -27,7 +27,6 @@ public class BlockSnifferEgg extends Block {
         this.setTranslationKey(Tags.MOD_ID + ".block." + name);
         this.setHardness(0.5F);
         this.setResistance(0.5F);
-//        this.setSoundType(CHAIN);
     }
 
     @Override

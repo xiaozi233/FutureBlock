@@ -6,10 +6,11 @@ import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.client.particle.IParticleFactory;
 import net.minecraftforge.common.util.EnumHelper;
 
+@SuppressWarnings("SameParameterValue")
 public class ParticleRegister {
     public static EnumParticleTypes SMALL_FLAME;
 
-    public static void registerParticles(){
+    public static void init(){
         SMALL_FLAME = registerParticle("SMALL_FLAME", "small_Flame", true, new ParticleSmallFlame.SmallFactory());
     }
 

@@ -2,7 +2,7 @@ package cn.xiaozi0721.futureblock.block;
 
 import cn.xiaozi0721.futureblock.FutureBlock;
 import cn.xiaozi0721.futureblock.Tags;
-import cn.xiaozi0721.futureblock.sound.SoundEventRegister;
+import cn.xiaozi0721.futureblock.register.SoundEventRegister;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockFaceShape;
@@ -17,7 +17,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 
-@SuppressWarnings({"deprecation", "NullableProblems"})
+@SuppressWarnings({"deprecation", "NullableProblems", "DefaultNotLastCaseInSwitch"})
 public class BlockChain extends BlockRotatedPillar {
     protected static final AxisAlignedBB Y_AXIS_AABB = new AxisAlignedBB(0.40625D, 0.0D, 0.40625D, 0.59375D, 1.0D, 0.59375D);
     protected static final AxisAlignedBB Z_AXIS_AABB = new AxisAlignedBB(0.40625D, 0.40625D, 0.0D, 0.59375D, 0.59375D, 1.0D);
@@ -34,10 +34,9 @@ public class BlockChain extends BlockRotatedPillar {
     }
 
     @Override
-    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
-    {
+    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
         EnumFacing.Axis enumAxis = state.getValue(AXIS);
-        switch (enumAxis){
+        switch (enumAxis) {
             case X:
             default:
                 return X_AXIS_AABB;
@@ -49,11 +48,9 @@ public class BlockChain extends BlockRotatedPillar {
     }
 
     @Override
-    public IBlockState getStateFromMeta(int meta)
-    {
+    public IBlockState getStateFromMeta(int meta) {
         EnumFacing.Axis enumAxis;
-        switch (meta)
-        {
+        switch (meta) {
             case 0:
             default:
                 enumAxis = EnumFacing.Axis.X;
@@ -70,10 +67,8 @@ public class BlockChain extends BlockRotatedPillar {
     }
 
     @Override
-    public int getMetaFromState(IBlockState state)
-    {
-        switch (state.getValue(AXIS))
-        {
+    public int getMetaFromState(IBlockState state) {
+        switch (state.getValue(AXIS)) {
             case X:
             default:
                 return 0;
@@ -85,13 +80,11 @@ public class BlockChain extends BlockRotatedPillar {
     }
 
     @Override
-    public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos, EnumFacing face)
-    {
+    public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos, EnumFacing face) {
         return BlockFaceShape.UNDEFINED;
     }
     @Override
-    public boolean canPlaceBlockOnSide(World worldIn, BlockPos pos, EnumFacing side)
-    {
+    public boolean canPlaceBlockOnSide(World worldIn, BlockPos pos, EnumFacing side) {
         return true;
     }
 
@@ -107,8 +100,7 @@ public class BlockChain extends BlockRotatedPillar {
 
     @Override
     @SideOnly(Side.CLIENT)
-    public BlockRenderLayer getRenderLayer()
-    {
+    public BlockRenderLayer getRenderLayer() {
         return BlockRenderLayer.CUTOUT;
     }
 }

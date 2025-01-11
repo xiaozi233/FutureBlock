@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 public class BlockHoneyBE extends BlockBaseHoney {
     protected static final AxisAlignedBB HONEY_AABB = new AxisAlignedBB(0.0625D, 0.0D, 0.0625D, 0.9375D, 1D, 0.9735D);
 
-    public BlockHoneyBE(){
+    public BlockHoneyBE() {
         String name = "honey_be";
         this.setRegistryName(Tags.MOD_ID, name);
         this.slipperiness = 0.8F;
@@ -27,15 +27,12 @@ public class BlockHoneyBE extends BlockBaseHoney {
     }
 
     @Override
-    public void onEntityWalk(World worldIn, BlockPos pos, Entity entityIn)
-    {
-        if (!entityIn.isSneaking())
-        {
-            double d0 = 0.4D + Math.abs((entityIn.motionY - 0.08) * 0.98) * 0.2D;
+    public void onEntityWalk(World worldIn, BlockPos pos, Entity entityIn) {
+        if (!entityIn.isSneaking()) {
+            double d0 = 0.4D + Math.abs((entityIn.motionY - 0.08D) * 0.98D) * 0.2D;
             entityIn.motionX *= d0;
             entityIn.motionZ *= d0;
         }
-
         super.onEntityWalk(worldIn, pos, entityIn);
     }
 }

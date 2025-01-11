@@ -9,7 +9,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-@SuppressWarnings({"deprecation", "NullableProblems"})
+@SuppressWarnings({"deprecation", "NullableProblems", "DefaultNotLastCaseInSwitch"})
 public class BlockSmallAmethystBud extends BlockBaseAmethystCluster {
     protected static final AxisAlignedBB AABB_NORTH = new AxisAlignedBB(0.25, 0.25, 0.8125D, 0.75D, 0.75D, 1D);
     protected static final AxisAlignedBB AABB_SOUTH = new AxisAlignedBB(0.25, 0.25, 0D, 0.75D, 0.75D, 0.1875D);

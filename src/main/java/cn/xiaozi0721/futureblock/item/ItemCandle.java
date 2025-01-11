@@ -22,7 +22,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 
-@SuppressWarnings(value={"NullableProblems"})
+@SuppressWarnings({"NullableProblems", "UnnecessaryUnboxing", "UnnecessaryBoxing"})
 public class ItemCandle extends ItemBlock {
     public ItemCandle(Block block) {
         super(block);
@@ -69,7 +69,7 @@ public class ItemCandle extends ItemBlock {
             } else if (isCake) {
                 int i = ((Integer)iblockstate.getValue(BlockCake.BITES)).intValue();
 
-                if (i==0){
+                if (i == 0){
                     AxisAlignedBB axisalignedbb = iblockstate.getCollisionBoundingBox(worldIn, blockpos);
 
                     IBlockState iblockstate1 = BlockCandleCake.getCandleCakeFromCandle((BlockCandle) Block.getBlockFromItem(itemstack.getItem()));
@@ -92,14 +92,12 @@ public class ItemCandle extends ItemBlock {
 
             return super.onItemUse(player, worldIn, pos, hand, facing, hitX, hitY, hitZ);
         }
-        else
-        {
+        else {
             return EnumActionResult.FAIL;
         }
     }
 
-    public int getMetadata(int damage)
-    {
+    public int getMetadata(int damage) {
         return damage;
     }
 

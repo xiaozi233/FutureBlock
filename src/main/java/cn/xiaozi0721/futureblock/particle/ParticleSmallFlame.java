@@ -7,6 +7,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+@SuppressWarnings("NullableProblems")
 @SideOnly(Side.CLIENT)
 public class ParticleSmallFlame extends ParticleFlame {
     protected ParticleSmallFlame(World worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeedIn, double ySpeedIn, double zSpeedIn) {

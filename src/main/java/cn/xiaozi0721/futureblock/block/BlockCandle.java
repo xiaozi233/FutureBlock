@@ -1,6 +1,6 @@
 package cn.xiaozi0721.futureblock.block;
 
-import cn.xiaozi0721.futureblock.sound.SoundEventRegister;
+import cn.xiaozi0721.futureblock.register.SoundEventRegister;
 import cn.xiaozi0721.futureblock.util.Util;
 import com.google.common.collect.ImmutableList;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
@@ -28,7 +28,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import java.util.List;
 import java.util.Random;
 
-@SuppressWarnings({"deprecation", "NullableProblems"})
+@SuppressWarnings({"deprecation", "NullableProblems", "UnnecessaryUnboxing", "UnnecessaryBoxing"})
 public class BlockCandle extends BlockIgnitable {
     public static final PropertyInteger CANDLES = PropertyInteger.create("candles", 1, 4);
     private static final Int2ObjectMap<List<Vec3d>> CANDLES_TO_PARTICLE_OFFSETS = Util.make(
@@ -46,7 +46,7 @@ public class BlockCandle extends BlockIgnitable {
             new AxisAlignedBB(0.4375, 0.0, 0.4375, 0.5625, 0.375, 0.5625),
             new AxisAlignedBB(0.3125, 0.0, 0.375, 0.6875, 0.375, 0.5625),
             new AxisAlignedBB(0.3125, 0.0, 0.375, 0.625, 0.375, 0.6875),
-            new AxisAlignedBB(0.3125, 0.0, 0.3125, 0.6875, 0.375, 0.625),
+            new AxisAlignedBB(0.3125, 0.0, 0.3125, 0.6875, 0.375, 0.625)
     };
 
     public BlockCandle(MapColor mapColor){
@@ -70,7 +70,7 @@ public class BlockCandle extends BlockIgnitable {
 
     @Override
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
-        return CANDLE_AABB[((Integer)state.getValue(CANDLES)).intValue()-1];
+        return CANDLE_AABB[((Integer)state.getValue(CANDLES)).intValue() - 1];
     }
 
     @Override
@@ -113,7 +113,7 @@ public class BlockCandle extends BlockIgnitable {
     @Override
     public int getMetaFromState(IBlockState state) {
         int candles = (state.getValue(CANDLES)).intValue() - 1;
-        return state.getValue(LIT) ? candles + 4: candles;
+        return state.getValue(LIT) ? candles + 4 : candles;
     }
 
     @Override
