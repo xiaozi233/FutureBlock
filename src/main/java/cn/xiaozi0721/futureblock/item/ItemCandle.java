@@ -40,6 +40,7 @@ public class ItemCandle extends ItemBlock {
 
             boolean isCandle = block == this.block;
             boolean isCake = block == Blocks.CAKE;
+
             if (!isCandle && !isCake && !block.isReplaceable(worldIn, pos)) {
                 blockpos = pos.offset(facing);
                 iblockstate = worldIn.getBlockState(blockpos);

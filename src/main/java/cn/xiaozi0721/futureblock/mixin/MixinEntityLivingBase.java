@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.injection.At;
 @Mixin(EntityLivingBase.class)
 public abstract class MixinEntityLivingBase{
     @ModifyExpressionValue(method = "jump", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/EntityLivingBase;getJumpUpwardsMotion()F"))
-    public float applyJumpFactor(float jumpUpwardsMotion){
+    private float applyJumpFactor(float jumpUpwardsMotion){
         return jumpUpwardsMotion * ((IApplySpeedFactor)this).getJumpSpeedFactor();
     }
 }

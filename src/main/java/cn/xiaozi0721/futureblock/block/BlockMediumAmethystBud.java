@@ -2,12 +2,10 @@ package cn.xiaozi0721.futureblock.block;
 
 import cn.xiaozi0721.futureblock.Tags;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
-import net.minecraft.world.World;
 
 @SuppressWarnings({"deprecation", "NullableProblems", "DefaultNotLastCaseInSwitch"})
 public class BlockMediumAmethystBud extends BlockBaseAmethystCluster {
@@ -22,12 +20,6 @@ public class BlockMediumAmethystBud extends BlockBaseAmethystCluster {
         String name = "medium_amethyst_bud";
         this.setRegistryName(Tags.MOD_ID, name);
         this.setTranslationKey(Tags.MOD_ID + ".block." + name);
-    }
-
-    @Override
-    public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
-    {
-        return this.getDefaultState().withProperty(FACING, facing);
     }
 
     @Override

@@ -1,31 +1,11 @@
 package cn.xiaozi0721.futureblock.block;
 
-import cn.xiaozi0721.futureblock.Tags;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
-import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-@SuppressWarnings({"deprecation", "NullableProblems"})
-public class BlockHoneyBE extends BlockBaseHoney {
-    protected static final AxisAlignedBB HONEY_AABB = new AxisAlignedBB(0.0625D, 0.0D, 0.0625D, 0.9375D, 1D, 0.9735D);
-
-    public BlockHoneyBE() {
-        String name = "honey_be";
-        this.setRegistryName(Tags.MOD_ID, name);
-        this.slipperiness = 0.8F;
-        this.setTranslationKey(Tags.MOD_ID + ".block." + name);
-        this.speedFactor = 1F;
-        this.jumpSpeedFactor = 0.6F;
-    }
-
-    @Override
-    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
-        return HONEY_AABB;
-    }
-
+@SuppressWarnings({"NullableProblems"})
+public class BlockHoneyBE extends BlockHoneyNetease {
     @Override
     public void onEntityWalk(World worldIn, BlockPos pos, Entity entityIn) {
         if (!entityIn.isSneaking()) {
