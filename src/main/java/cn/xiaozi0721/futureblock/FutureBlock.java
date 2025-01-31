@@ -19,6 +19,7 @@ public class FutureBlock {
     private static final String CLIENT_PROXY = "cn.xiaozi0721." + Tags.MOD_ID + ".proxy.ClientProxy";
     private static final String COMMON_PROXY = "cn.xiaozi0721." + Tags.MOD_ID + ".proxy.CommonProxy";
     public static CreativeTabs FUTUREBLOCK_TAB = new FutureBlockTab();
+
     @SidedProxy(clientSide = CLIENT_PROXY, serverSide = COMMON_PROXY)
     private static CommonProxy proxy;
 

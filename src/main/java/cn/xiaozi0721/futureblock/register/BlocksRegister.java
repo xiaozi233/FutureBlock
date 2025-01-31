@@ -27,8 +27,8 @@ public final class BlocksRegister {
     public static final Block BE_STRUCTURE_VOID = new BlockBEStructureVoid();
     public static final Block CHAIN = new BlockChain();
     public static final Block HONEY = new BlockHoney();
-    public static final Block HONEY_NETEASE = new BlockHoneyNetease();
-    public static final Block HONEY_BE = new BlockHoneyBE();
+    public static final Block HONEY_BE = register(new BlockHoneyBE(), "honey_be");
+    public static final Block HONEY_NETEASE = register(new BlockHoneyNetease(), "honey_netease");
     public static final Block SNIFFER_EGG = new BlockSnifferEgg();
 
     public static final Block CANDLE = registerCandle(-1);
@@ -103,7 +103,7 @@ public final class BlocksRegister {
     @SubscribeEvent
     public static void registerItemBlocks(RegistryEvent.Register<Item> event) {
         Item itemBlock;
-        for (Block block : blocks) {
+        for (Block block : blocks){
             itemBlock = new ItemBlock(block).setRegistryName(Objects.requireNonNull(block.getRegistryName()));
             event.getRegistry().register(itemBlock);
         }
@@ -115,8 +115,7 @@ public final class BlocksRegister {
 
     @SideOnly(Side.CLIENT)
     @SubscribeEvent
-    public static void onModelRegister(ModelRegistryEvent event)
-    {
+    public static void onModelRegister(ModelRegistryEvent event) {
        for (Block block : blocks){
            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), 0, new ModelResourceLocation(Objects.requireNonNull(block.getRegistryName()), "inventory"));
        }
@@ -125,17 +124,21 @@ public final class BlocksRegister {
        }
     }
 
+    private static Block register(Block block, String name){
+        return block.setRegistryName(Tags.MOD_ID, name).setTranslationKey(Tags.MOD_ID + ".block." + name);
+    }
+
     private static Block registerCandle(int color){
         String name = getColorName("candle", color);
         MapColor mapColor = getMapColor(color);
-        return new BlockCandle(mapColor).setRegistryName(Tags.MOD_ID, name).setTranslationKey(Tags.MOD_ID + ".block." + name);
+        return register(new BlockCandle(mapColor), name);
     }
 
     private static Block registerCandleCake(int color){
         String name = getColorName("candle_cake", color);
         MapColor mapColor = getMapColor(color);
         Block candle = getBlockCandle(color);
-        return new BlockCandleCake(candle, mapColor).setRegistryName(Tags.MOD_ID, name).setTranslationKey(Tags.MOD_ID + ".block." + name);
+        return register(new BlockCandleCake(candle, mapColor), name);
     }
 
     private static String getColorName(String name, int color){

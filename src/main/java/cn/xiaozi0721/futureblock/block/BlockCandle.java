@@ -9,7 +9,6 @@ import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
@@ -28,7 +27,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import java.util.List;
 import java.util.Random;
 
-@SuppressWarnings({"deprecation", "NullableProblems", "UnnecessaryUnboxing", "UnnecessaryBoxing"})
+@SuppressWarnings({"deprecation", "NullableProblems"})
 public class BlockCandle extends BlockIgnitable {
     public static final PropertyInteger CANDLES = PropertyInteger.create("candles", 1, 4);
     private static final Int2ObjectMap<List<Vec3d>> CANDLES_TO_PARTICLE_OFFSETS = Util.make(
@@ -51,7 +50,7 @@ public class BlockCandle extends BlockIgnitable {
 
     public BlockCandle(MapColor mapColor){
         super(Material.CIRCUITS, mapColor);
-        this.setDefaultState(this.blockState.getBaseState().withProperty(LIT, Boolean.valueOf(false)).withProperty(CANDLES, Integer.valueOf(1)));
+        this.setDefaultState(this.blockState.getBaseState().withProperty(LIT, Boolean.FALSE).withProperty(CANDLES, 1));
         this.setHardness(0.1F);
         this.setSoundType(SoundEventRegister.CANDLE);
     }
@@ -70,7 +69,7 @@ public class BlockCandle extends BlockIgnitable {
 
     @Override
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
-        return CANDLE_AABB[((Integer)state.getValue(CANDLES)).intValue() - 1];
+        return CANDLE_AABB[state.getValue(CANDLES) - 1];
     }
 
     @Override
@@ -99,20 +98,20 @@ public class BlockCandle extends BlockIgnitable {
         Block block = iblockstate.getBlock();
 
         BlockFaceShape blockfaceshape = iblockstate.getBlockFaceShape(worldIn, pos.down(), EnumFacing.UP);
-        return blockfaceshape == BlockFaceShape.SOLID || iblockstate.getBlock().isLeaves(iblockstate, worldIn, pos.down()) || block == this && ((Integer)iblockstate.getValue(CANDLES)).intValue() == 4;
+        return blockfaceshape == BlockFaceShape.SOLID || iblockstate.getBlock().isLeaves(iblockstate, worldIn, pos.down()) || block == this && iblockstate.getValue(CANDLES) == 4;
     }
 
     @Override
     public IBlockState getStateFromMeta(int meta) {
-        if(meta > 7) return this.getDefaultState().withProperty(CANDLES, Integer.valueOf(1)).withProperty(LIT, Boolean.valueOf(false));
+        if(meta > 7) return this.getDefaultState().withProperty(CANDLES, 1).withProperty(LIT, Boolean.FALSE);
         boolean lit = meta > 3;
         int candles = lit ? meta - 3 : meta + 1;
-        return this.getDefaultState().withProperty(CANDLES, Integer.valueOf(candles)).withProperty(LIT, Boolean.valueOf(lit));
+        return this.getDefaultState().withProperty(CANDLES, candles).withProperty(LIT, lit);
     }
 
     @Override
     public int getMetaFromState(IBlockState state) {
-        int candles = (state.getValue(CANDLES)).intValue() - 1;
+        int candles = state.getValue(CANDLES) - 1;
         return state.getValue(LIT) ? candles + 4 : candles;
     }
 
@@ -123,7 +122,7 @@ public class BlockCandle extends BlockIgnitable {
 
     @Override
     protected BlockStateContainer createBlockState() {
-        return new BlockStateContainer(this, new IProperty[] {LIT, CANDLES});
+        return new BlockStateContainer(this, LIT, CANDLES);
     }
 
     @Override
@@ -133,6 +132,6 @@ public class BlockCandle extends BlockIgnitable {
 
     @Override
     protected Iterable<Vec3d> getParticleOffsets(IBlockState state) {
-        return (Iterable<Vec3d>)CANDLES_TO_PARTICLE_OFFSETS.get(((Integer)state.getValue(CANDLES)).intValue());
+        return CANDLES_TO_PARTICLE_OFFSETS.get(state.getValue(CANDLES).intValue());
     }
 }

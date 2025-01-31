@@ -6,7 +6,6 @@ import cn.xiaozi0721.futureblock.register.SoundEventRegister;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
@@ -27,14 +26,14 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import java.util.Random;
 
 
-@SuppressWarnings({"NullableProblems", "UnnecessaryBoxing"})
+@SuppressWarnings({"NullableProblems"})
 public abstract class BlockIgnitable extends Block {
     public static final PropertyBool LIT = PropertyBool.create("lit");
     protected abstract Iterable<Vec3d> getParticleOffsets(IBlockState state);
 
     protected BlockIgnitable(Material material, MapColor mapColor) {
         super(material, mapColor);
-        this.setDefaultState(this.blockState.getBaseState().withProperty(LIT, Boolean.valueOf(false)));
+        this.setDefaultState(this.blockState.getBaseState().withProperty(LIT, Boolean.FALSE));
         this.setCreativeTab(FutureBlock.FUTUREBLOCK_TAB);
         useNeighborBrightness = true;
     }
@@ -66,13 +65,13 @@ public abstract class BlockIgnitable extends Block {
     @Override
     protected BlockStateContainer createBlockState()
     {
-        return new BlockStateContainer(this, new IProperty[] {LIT});
+        return new BlockStateContainer(this, LIT);
     }
 
     @Override @SideOnly(Side.CLIENT)
     public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
         if (stateIn.getValue(LIT)){
-            this.getParticleOffsets(stateIn).forEach(offset -> spawnCandleParticles(worldIn, offset.add((double)pos.getX(), (double)pos.getY(), (double)pos.getZ()), rand));
+            this.getParticleOffsets(stateIn).forEach(offset -> spawnCandleParticles(worldIn, offset.add(pos.getX(), pos.getY(), pos.getZ()), rand));
         }
     }
 

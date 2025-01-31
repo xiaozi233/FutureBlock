@@ -31,13 +31,13 @@ import javax.annotation.Nullable;
 import java.util.*;
 
 
-@SuppressWarnings({"deprecation", "NullableProblems", "UnnecessaryBoxing"})
+@SuppressWarnings({"deprecation", "NullableProblems"})
 public class BlockCandleCake extends BlockIgnitable{
     protected static final AxisAlignedBB CAKE_AABB = new AxisAlignedBB(0.0625D, 0.0D, 0.0625D, 0.9375D, 0.5D, 0.9375D);
     protected static final AxisAlignedBB CANDLE_AABB = new AxisAlignedBB(0.4375D, 0.5D, 0.4375D, 0.5625D, 0.875D, 0.5625D);
     protected static final AxisAlignedBB CANDLE_CAKE_AABB = CAKE_AABB.union(CANDLE_AABB);
-    private static final Iterable<Vec3d> PARTICLE_OFFSETS = ImmutableList.<Vec3d>of(new Vec3d(0.5, 1.0, 0.5));
-    private static final Map<BlockCandle, BlockCandleCake> CANDLES_TO_CANDLE_CAKES = Maps.<BlockCandle, BlockCandleCake>newHashMap();
+    private static final Iterable<Vec3d> PARTICLE_OFFSETS = ImmutableList.of(new Vec3d(0.5, 1.0, 0.5));
+    private static final Map<BlockCandle, BlockCandleCake> CANDLES_TO_CANDLE_CAKES = Maps.newHashMap();
     private final Block modelBlock;
 
     public BlockCandleCake(Block modelBlock, MapColor mapColor) {
@@ -70,7 +70,7 @@ public class BlockCandleCake extends BlockIgnitable{
 
     @Override @Nullable
     public RayTraceResult collisionRayTrace(IBlockState blockState, World worldIn, BlockPos pos, Vec3d start, Vec3d end) {
-        List<RayTraceResult> list = Lists.<RayTraceResult>newArrayList();
+        List<RayTraceResult> list = Lists.newArrayList();
         list.add(this.rayTrace(pos, start, end, CAKE_AABB));
         list.add(this.rayTrace(pos, start, end, CANDLE_AABB));
 
@@ -93,8 +93,8 @@ public class BlockCandleCake extends BlockIgnitable{
     @Override
     public IBlockState getStateFromMeta(int meta) {
         switch (meta){
-            case 1: return this.getDefaultState().withProperty(LIT, Boolean.valueOf(true));
-            case 0: default: return this.getDefaultState().withProperty(LIT, Boolean.valueOf(false));
+            case 1: return this.getDefaultState().withProperty(LIT, Boolean.TRUE);
+            case 0: default: return this.getDefaultState().withProperty(LIT, Boolean.FALSE);
         }
     }
 
@@ -157,7 +157,7 @@ public class BlockCandleCake extends BlockIgnitable{
             player.addStat(StatList.CAKE_SLICES_EATEN);
             player.getFoodStats().addStats(2, 0.1F);
 
-            worldIn.setBlockState(pos, Blocks.CAKE.getDefaultState().withProperty(BlockCake.BITES, Integer.valueOf(1)), 3);
+            worldIn.setBlockState(pos, Blocks.CAKE.getDefaultState().withProperty(BlockCake.BITES, 1), 3);
             this.dropBlockAsItem(worldIn, pos, state, 0);
 
             return true;

@@ -2,12 +2,10 @@ package cn.xiaozi0721.futureblock.block;
 
 import cn.xiaozi0721.futureblock.Tags;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
-import net.minecraft.world.World;
 
 @SuppressWarnings({"deprecation", "NullableProblems", "DefaultNotLastCaseInSwitch"})
 public class BlockAmethystCluster extends BlockBaseAmethystCluster {
@@ -25,14 +23,9 @@ public class BlockAmethystCluster extends BlockBaseAmethystCluster {
     }
 
     @Override
-    public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
-        return this.getDefaultState().withProperty(FACING, facing);
-    }
-
-    @Override
     public AxisAlignedBB getBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos) {
         AxisAlignedBB axisalignedbb;
-        EnumFacing enumfacing = (EnumFacing)blockState.getValue(FACING);
+        EnumFacing enumfacing = blockState.getValue(FACING);
         switch (enumfacing) {
             case NORTH:
             default:

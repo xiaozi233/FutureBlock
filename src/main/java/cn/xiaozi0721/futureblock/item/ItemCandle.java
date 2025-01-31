@@ -22,7 +22,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 
-@SuppressWarnings({"NullableProblems", "UnnecessaryUnboxing", "UnnecessaryBoxing"})
+@SuppressWarnings({"NullableProblems"})
 public class ItemCandle extends ItemBlock {
     public ItemCandle(Block block) {
         super(block);
@@ -40,16 +40,17 @@ public class ItemCandle extends ItemBlock {
 
             boolean isCandle = block == this.block;
             boolean isCake = block == Blocks.CAKE;
+
             if (!isCandle && !isCake && !block.isReplaceable(worldIn, pos)) {
                 blockpos = pos.offset(facing);
                 iblockstate = worldIn.getBlockState(blockpos);
             }
 
             if (isCandle) {
-                int i = ((Integer)iblockstate.getValue(BlockCandle.CANDLES)).intValue();
+                int i = iblockstate.getValue(BlockCandle.CANDLES);
 
                 if (i < 4) {
-                    IBlockState iblockstate1 = iblockstate.withProperty(BlockCandle.CANDLES, Integer.valueOf(i + 1));
+                    IBlockState iblockstate1 = iblockstate.withProperty(BlockCandle.CANDLES, i + 1);
                     AxisAlignedBB axisalignedbb = iblockstate1.getCollisionBoundingBox(worldIn, blockpos);
 
                     if (axisalignedbb != Block.NULL_AABB && worldIn.checkNoEntityCollision(axisalignedbb.offset(blockpos)) && worldIn.setBlockState(blockpos, iblockstate1, 10)) {
@@ -67,7 +68,7 @@ public class ItemCandle extends ItemBlock {
                     return EnumActionResult.FAIL;
                 }
             } else if (isCake) {
-                int i = ((Integer)iblockstate.getValue(BlockCake.BITES)).intValue();
+                int i = iblockstate.getValue(BlockCake.BITES);
 
                 if (i == 0){
                     AxisAlignedBB axisalignedbb = iblockstate.getCollisionBoundingBox(worldIn, blockpos);
@@ -75,7 +76,7 @@ public class ItemCandle extends ItemBlock {
                     IBlockState iblockstate1 = BlockCandleCake.getCandleCakeFromCandle((BlockCandle) Block.getBlockFromItem(itemstack.getItem()));
                     Block candleCake = iblockstate1.getBlock();
 
-                    if (axisalignedbb != Block.NULL_AABB && worldIn.checkNoEntityCollision(axisalignedbb.offset(blockpos)) && worldIn.setBlockState(pos, candleCake.getDefaultState().withProperty(BlockIgnitable.LIT, Boolean.valueOf(false)), 3)) {
+                    if (axisalignedbb != Block.NULL_AABB && worldIn.checkNoEntityCollision(axisalignedbb.offset(blockpos)) && worldIn.setBlockState(pos, candleCake.getDefaultState().withProperty(BlockIgnitable.LIT, Boolean.FALSE), 3)) {
                         SoundType soundtype = this.block.getSoundType(iblockstate1, worldIn, pos, player);
                         worldIn.playSound(player, blockpos, soundtype.getPlaceSound(), SoundCategory.BLOCKS, (soundtype.getVolume() + 1.0F) / 2.0F, soundtype.getPitch() * 0.8F);
 
@@ -104,6 +105,6 @@ public class ItemCandle extends ItemBlock {
     public boolean canPlaceBlockOnSide(World world, BlockPos pos, EnumFacing side, EntityPlayer player, ItemStack stack) {
         IBlockState state = world.getBlockState(pos);
         Block block = state.getBlock();
-        return block == Blocks.CAKE && state.getValue(BlockCake.BITES) == 0|| block instanceof BlockCandle && ((Integer) state.getValue(BlockCandle.CANDLES)) <= 3 || super.canPlaceBlockOnSide(world, pos, side, player, stack);
+        return block == Blocks.CAKE && state.getValue(BlockCake.BITES) == 0 || block instanceof BlockCandle && state.getValue(BlockCandle.CANDLES) <= 3 || super.canPlaceBlockOnSide(world, pos, side, player, stack);
     }
 }
