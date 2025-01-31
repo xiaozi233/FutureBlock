@@ -9,7 +9,7 @@ public class FutureBlockTab extends CreativeTabs {
     public FutureBlockTab(){
         super("futureblock.tab");
     }
-
+    public static CreativeTabs FUTUREBLOCK_TAB = new FutureBlockTab();
     @Override
     public ItemStack createIcon() {
         return new ItemStack(BlocksRegister.AMETHYST_CLUSTER);

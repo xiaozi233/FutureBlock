@@ -1,7 +1,7 @@
 package cn.xiaozi0721.futureblock.block;
 
-import cn.xiaozi0721.futureblock.FutureBlock;
 import cn.xiaozi0721.futureblock.Tags;
+import cn.xiaozi0721.futureblock.tab.FutureBlockTab;
 import net.minecraft.block.BlockStructureVoid;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;
@@ -15,7 +15,7 @@ public class BlockBEStructureVoid extends BlockStructureVoid {
     public BlockBEStructureVoid() {
         String name = "be_structure_void";
         this.setRegistryName(Tags.MOD_ID, name);
-        this.setCreativeTab(FutureBlock.FUTUREBLOCK_TAB);
+        this.setCreativeTab(FutureBlockTab.FUTUREBLOCK_TAB);
         this.setTranslationKey(Tags.MOD_ID + ".block." + name);
         this.setBlockUnbreakable();
     }

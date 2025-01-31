@@ -1,7 +1,7 @@
 package cn.xiaozi0721.futureblock.block;
 
-import cn.xiaozi0721.futureblock.FutureBlock;
 import cn.xiaozi0721.futureblock.Tags;
+import cn.xiaozi0721.futureblock.tab.FutureBlockTab;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockFaceShape;
@@ -23,7 +23,7 @@ public class BlockSnifferEgg extends Block {
         super(Material.DRAGON_EGG);
         String name = "sniffer_egg";
         this.setRegistryName(Tags.MOD_ID, name);
-        this.setCreativeTab(FutureBlock.FUTUREBLOCK_TAB);
+        this.setCreativeTab(FutureBlockTab.FUTUREBLOCK_TAB);
         this.setTranslationKey(Tags.MOD_ID + ".block." + name);
         this.setHardness(0.5F);
         this.setResistance(0.5F);

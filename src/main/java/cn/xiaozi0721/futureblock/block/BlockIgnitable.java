@@ -1,8 +1,8 @@
 package cn.xiaozi0721.futureblock.block;
 
-import cn.xiaozi0721.futureblock.FutureBlock;
 import cn.xiaozi0721.futureblock.register.ParticleRegister;
 import cn.xiaozi0721.futureblock.register.SoundEventRegister;
+import cn.xiaozi0721.futureblock.tab.FutureBlockTab;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -34,7 +34,7 @@ public abstract class BlockIgnitable extends Block {
     protected BlockIgnitable(Material material, MapColor mapColor) {
         super(material, mapColor);
         this.setDefaultState(this.blockState.getBaseState().withProperty(LIT, Boolean.FALSE));
-        this.setCreativeTab(FutureBlock.FUTUREBLOCK_TAB);
+        this.setCreativeTab(FutureBlockTab.FUTUREBLOCK_TAB);
         useNeighborBrightness = true;
     }
 
