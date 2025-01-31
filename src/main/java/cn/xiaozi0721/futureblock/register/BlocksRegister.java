@@ -27,8 +27,8 @@ public final class BlocksRegister {
     public static final Block BE_STRUCTURE_VOID = new BlockBEStructureVoid();
     public static final Block CHAIN = new BlockChain();
     public static final Block HONEY = new BlockHoney();
-    public static final Block HONEY_BE = register(new BlockHoneyBE(), "honey_be");
-    public static final Block HONEY_NETEASE = register(new BlockHoneyNetease(), "honey_netease");
+    public static final Block HONEY_BE = registerName(new BlockHoneyBE(), "honey_be");
+    public static final Block HONEY_NETEASE = registerName(new BlockHoneyNetease(), "honey_netease");
     public static final Block SNIFFER_EGG = new BlockSnifferEgg();
 
     public static final Block CANDLE = registerCandle(-1);
@@ -124,21 +124,21 @@ public final class BlocksRegister {
        }
     }
 
-    private static Block register(Block block, String name){
+    private static Block registerName(Block block, String name){
         return block.setRegistryName(Tags.MOD_ID, name).setTranslationKey(Tags.MOD_ID + ".block." + name);
     }
 
     private static Block registerCandle(int color){
         String name = getColorName("candle", color);
         MapColor mapColor = getMapColor(color);
-        return register(new BlockCandle(mapColor), name);
+        return registerName(new BlockCandle(mapColor), name);
     }
 
     private static Block registerCandleCake(int color){
         String name = getColorName("candle_cake", color);
         MapColor mapColor = getMapColor(color);
         Block candle = getBlockCandle(color);
-        return register(new BlockCandleCake(candle, mapColor), name);
+        return registerName(new BlockCandleCake(candle, mapColor), name);
     }
 
     private static String getColorName(String name, int color){

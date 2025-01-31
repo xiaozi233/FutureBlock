@@ -2,7 +2,6 @@ package cn.xiaozi0721.futureblock.mixin;
 
 import cn.xiaozi0721.futureblock.interfaces.IBlockSpeedFactor;
 import cn.xiaozi0721.futureblock.interfaces.IApplySpeedFactor;
-import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -33,25 +32,30 @@ public abstract class MixinEntity implements IApplySpeedFactor {
 
     @Override
     public float getJumpSpeedFactor(){
-        float jumpSpeedFactor = ((IBlockSpeedFactor)this.getBlockBelow()).getJumpSpeedFactor();
-        float lowerBlockJumpSpeedFactor = ((IBlockSpeedFactor)this.getBlockBelow(0.5D)).getJumpSpeedFactor();
+        float jumpSpeedFactor = this.getBlockBelow().getJumpSpeedFactor();
+        float lowerBlockJumpSpeedFactor = this.getBlockBelow(0.5D).getJumpSpeedFactor();
         return jumpSpeedFactor == 1.0F ? lowerBlockJumpSpeedFactor : jumpSpeedFactor;
     }
 
     @Unique
     public float getSpeedFactor(){
-        float speedFactor = ((IBlockSpeedFactor)this.getBlockBelow()).getSpeedFactor();
-        float lowerBlockSpeedFactor = ((IBlockSpeedFactor)this.getBlockBelow(0.5D)).getSpeedFactor();
+        float speedFactor = this.getBlockBelow().getSpeedFactor();
+        float lowerBlockSpeedFactor = this.getBlockBelow(0.5D).getSpeedFactor();
         return speedFactor == 1.0F ? lowerBlockSpeedFactor : speedFactor;
     }
 
-    @Override
-    public Block getBlockBelow(double deltaY){
+    @Unique
+    public IBlockSpeedFactor getBlockBelow(double deltaY){
         int posX = MathHelper.floor(this.posX);
         int posY = MathHelper.floor(this.getEntityBoundingBox().minY - deltaY);
         int posZ = MathHelper.floor(this.posZ);
 
         BlockPos blockpos = new BlockPos(posX, posY, posZ);
-        return world.getBlockState(blockpos).getBlock();
+        return (IBlockSpeedFactor)world.getBlockState(blockpos).getBlock();
+    }
+
+    @Unique
+    public IBlockSpeedFactor getBlockBelow(){
+        return getBlockBelow(0D);
     }
 }
