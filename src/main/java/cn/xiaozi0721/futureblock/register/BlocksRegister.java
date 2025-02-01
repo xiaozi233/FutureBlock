@@ -30,6 +30,7 @@ public final class BlocksRegister {
     public static final Block HONEY_BE = registerName(new BlockHoneyBE(), "honey_be");
     public static final Block HONEY_NETEASE = registerName(new BlockHoneyNetease(), "honey_netease");
     public static final Block SNIFFER_EGG = new BlockSnifferEgg();
+    public static final Block SOUL_SAND_NEW = new BlockSoulSandNew();
 
     public static final Block CANDLE = registerCandle(-1);
     public static final Block WHITE_CANDLE = registerCandle(0);
@@ -69,10 +70,9 @@ public final class BlocksRegister {
 
     private static final Block[] blocks = {
             SMALL_AMETHYST_BUD, MEDIUM_AMETHYST_BUD, LARGE_AMETHYST_BUD, AMETHYST_CLUSTER,
-            BE_STRUCTURE_VOID,
-            CHAIN,
+            BE_STRUCTURE_VOID, CHAIN,
             HONEY, HONEY_NETEASE, HONEY_BE,
-            SNIFFER_EGG
+            SNIFFER_EGG, SOUL_SAND_NEW
     };
 
     private static final Block[] candles = {

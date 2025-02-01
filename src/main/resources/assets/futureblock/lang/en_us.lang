@@ -10,6 +10,7 @@ tile.futureblock.block.honey.name=Honey Block
 tile.futureblock.block.honey_netease.name=Honey Block (NetEase)
 tile.futureblock.block.honey_be.name=Honey Block (BE)
 tile.futureblock.block.sniffer_egg.name=Sniffer Egg
+tile.futureblock.block.soul_sand_new.name=Soul Sand (New)
 tile.futureblock.block.candle.name=Candle
 tile.futureblock.block.white_candle.name=White Candle
 tile.futureblock.block.orange_candle.name=Orange Candle
@@ -45,6 +46,9 @@ tile.futureblock.block.green_candle_cake.name=Green Candle Cake
 tile.futureblock.block.red_candle_cake.name=Red Candle Cake
 tile.futureblock.block.black_candle_cake.name=Black Candle Cake
 
+enchantment.soul_speed=Soul Speed
+
 subtitles.block.honey.slide=Sliding down a honey block
 subtitles.block.candle.crackle=Candle crackles
 subtitles.block.candle.extinguish=Candle extinguishes
+subtitles.particle.soul_escape=Soul escapes

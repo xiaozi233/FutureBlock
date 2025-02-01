@@ -15,6 +15,7 @@
     "MixinEntitySlime"
   ],
   "client": [
+    "client.MixinEntityPlayerSP"
   ],
   "server": [
   ],

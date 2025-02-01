@@ -559,5 +559,75 @@
       "futureblock:block/candle/step5"
     ],
     "subtitle": "subtitles.block.generic.footsteps"
+  },
+  "particle.soul_escape": {
+    "sounds": [
+      {
+        "attenuation_distance": 12,
+        "name": "futureblock:enchant/soulspeed/soulspeed1",
+        "volume": 0.25
+      },
+      {
+        "attenuation_distance": 12,
+        "name": "futureblock:enchant/soulspeed/soulspeed2",
+        "volume": 0.25
+      },
+      {
+        "attenuation_distance": 12,
+        "name": "futureblock:enchant/soulspeed/soulspeed3",
+        "volume": 0.25
+      },
+      {
+        "attenuation_distance": 12,
+        "name": "futureblock:enchant/soulspeed/soulspeed4",
+        "volume": 0.25
+      },
+      {
+        "attenuation_distance": 12,
+        "name": "futureblock:enchant/soulspeed/soulspeed5",
+        "volume": 0.25
+      },
+      {
+        "attenuation_distance": 12,
+        "name": "futureblock:enchant/soulspeed/soulspeed6",
+        "volume": 0.25
+      },
+      {
+        "attenuation_distance": 12,
+        "name": "futureblock:enchant/soulspeed/soulspeed7",
+        "volume": 0.25
+      },
+      {
+        "attenuation_distance": 12,
+        "name": "futureblock:enchant/soulspeed/soulspeed8",
+        "volume": 0.25
+      },
+      {
+        "attenuation_distance": 12,
+        "name": "futureblock:enchant/soulspeed/soulspeed9",
+        "volume": 0.25
+      },
+      {
+        "attenuation_distance": 12,
+        "name": "futureblock:enchant/soulspeed/soulspeed10",
+        "volume": 0.25
+      },
+      {
+        "attenuation_distance": 12,
+        "name": "futureblock:enchant/soulspeed/soulspeed11",
+        "volume": 0.25
+      },
+      {
+        "attenuation_distance": 12,
+        "name": "futureblock:enchant/soulspeed/soulspeed12",
+        "volume": 0.25
+      },
+      {
+        "attenuation_distance": 12,
+        "name": "futureblock:enchant/soulspeed/soulspeed13",
+        "volume": 0.25
+      }
+    ],
+    "subtitle": "subtitles.particle.soul_escape"
   }
 }

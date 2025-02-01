@@ -34,6 +34,8 @@ public class SoundEventRegister {
     public static final SoundEvent CANDLE_PLACE = newSoundEvent("block.candle.place");
     public static final SoundEvent CANDLE_STEP = newSoundEvent("block.candle.step");
 
+    public static final SoundEvent PARTICLE_SOUL_ESCAPE = newSoundEvent("particle.soul_escape");
+
     public static final SoundType AMETHYST_CLUSTER = new SoundType(1.0F, 1.0F, AMETHYST_CLUSTER_BREAK, AMETHYST_CLUSTER_STEP, AMETHYST_CLUSTER_PLACE, AMETHYST_CLUSTER_HIT, AMETHYST_CLUSTER_FALL);
     public static final SoundType CHAIN = new SoundType(1.0F, 1.0F, CHAIN_BREAK, CHAIN_STEP, CHAIN_PLACE, CHAIN_HIT, CHAIN_FALL);
     public static final SoundType HONEY = new SoundType(1.0F, 1.0F, HONEY_BREAK, HONEY_STEP, HONEY_PLACE, HONEY_HIT, HONEY_FALL);
@@ -44,6 +46,7 @@ public class SoundEventRegister {
             CHAIN_BREAK, CHAIN_STEP, CHAIN_PLACE, CHAIN_HIT, CHAIN_FALL,
             HONEY_BREAK, HONEY_STEP, HONEY_PLACE, HONEY_HIT, HONEY_FALL, HONEY_SLIDE,
             CANDLE_AMBIENT, CANDLE_BREAK, CANDLE_EXTINGUISH, CANDLE_STEP, CANDLE_PLACE, CANDLE_HIT, CANDLE_FALL,
+            PARTICLE_SOUL_ESCAPE
     };
 
     public static void onSoundEventRegistration(RegistryEvent.Register<SoundEvent> event) {
