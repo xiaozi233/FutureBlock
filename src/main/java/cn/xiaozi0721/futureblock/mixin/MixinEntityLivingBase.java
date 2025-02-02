@@ -12,7 +12,6 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.entity.ai.attributes.IAttributeInstance;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
@@ -68,11 +67,9 @@ public abstract class MixinEntityLivingBase extends MixinEntity {
 
     @Unique
     public boolean shouldDisplaySoulSpeedEffects() {
-        boolean isPlayer = getEntity() instanceof EntityPlayer;
         return this.ticksExisted % 5 == 0
                 && this.motionX != 0.0
                 && this.motionZ != 0.0
-                && (!isPlayer || !((EntityPlayer)getEntity()).isSpectator())
                 && EnchantmentHelper.hasSoulSpeed(getEntity())
                 && this.isOnSoulSpeedBlock();
     }

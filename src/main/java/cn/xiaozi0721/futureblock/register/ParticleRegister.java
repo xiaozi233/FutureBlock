@@ -23,23 +23,17 @@ public class ParticleRegister {
     public static EnumParticleTypes SOUL;
 
     public static void init(){
-        SMALL_FLAME = registerParticle("SMALL_FLAME", "smallFlame", false, new ParticleSmallFlame.Factory());
-        SOUL = registerParticle("SOUl", "soul", false, new ParticleSoul.Factory());
+        SMALL_FLAME = registerParticle("SMALL_FLAME", "smallFlame", false);
+        SOUL = registerParticle("SOUl", "soul", false);
     }
 
-    private static EnumParticleTypes registerParticle(String enumName, String particleName, boolean alwaysShow, IParticleFactory factory) {
-        int id = EnumParticleTypes.values().length;
-        EnumParticleTypes particle = EnumHelper.addEnum(EnumParticleTypes.class, enumName, new Class[]{String.class, int.class, boolean.class}, particleName, id, alwaysShow);
-
-        EnumParticleTypes.PARTICLES.put(id, particle);
-        EnumParticleTypes.BY_NAME.put(particleName, particle);
-
-        Minecraft.getMinecraft().effectRenderer.registerParticle(id, factory);
-        return particle;
-    }
-
-    @SubscribeEvent
     @SideOnly(Side.CLIENT)
+    public static void clientInit(){
+        registerParticle(SMALL_FLAME, new ParticleSmallFlame.Factory());
+        registerParticle(SOUL, new ParticleSoul.Factory());
+    }
+
+    @SubscribeEvent @SideOnly(Side.CLIENT)
     public static void onTextureStitchEventPre(TextureStitchEvent.Pre event) {
         ParticleSoul.setTextures(
                 IntStream.range(0, 11)
@@ -47,5 +41,19 @@ public class ParticleRegister {
                 .map(event.getMap()::registerSprite)
                 .toArray(TextureAtlasSprite[]::new)
         );
+    }
+
+    private static EnumParticleTypes registerParticle(String enumName, String particleName, boolean alwaysShow) {
+        int id = EnumParticleTypes.values().length;
+        EnumParticleTypes particle = EnumHelper.addEnum(EnumParticleTypes.class, enumName, new Class[]{String.class, int.class, boolean.class}, particleName, id, alwaysShow);
+
+        EnumParticleTypes.PARTICLES.put(id, particle);
+        EnumParticleTypes.BY_NAME.put(particleName, particle);
+        return particle;
+    }
+
+    @SideOnly(Side.CLIENT)
+    private static void registerParticle(EnumParticleTypes particleTypes, IParticleFactory particleFactory){
+        Minecraft.getMinecraft().effectRenderer.registerParticle(particleTypes.getParticleID(), particleFactory);
     }
 }

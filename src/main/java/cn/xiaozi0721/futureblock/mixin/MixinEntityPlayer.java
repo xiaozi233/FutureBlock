@@ -9,6 +9,7 @@ import org.spongepowered.asm.mixin.Shadow;
 @Mixin(EntityPlayer.class)
 public abstract class MixinEntityPlayer extends MixinEntityLivingBase {
     @Shadow public PlayerCapabilities capabilities;
+    @Shadow public abstract boolean isSpectator();
 
     @Override
     public float getSpeedFactor(){
@@ -23,5 +24,10 @@ public abstract class MixinEntityPlayer extends MixinEntityLivingBase {
     @Override
     protected boolean isOnSoulSpeedBlock() {
         return !this.capabilities.isFlying && super.isOnSoulSpeedBlock();
+    }
+
+    @Override
+    public boolean shouldDisplaySoulSpeedEffects() {
+        return !this.isSpectator() && super.shouldDisplaySoulSpeedEffects();
     }
 }

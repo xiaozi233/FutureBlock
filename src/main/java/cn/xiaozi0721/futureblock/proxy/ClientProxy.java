@@ -10,6 +10,7 @@ import net.minecraftforge.fml.relauncher.Side;
 public class ClientProxy extends CommonProxy{
     @Override
     public void init() {
-        ParticleRegister.init();
+        super.init();
+        ParticleRegister.clientInit();
     }
 }
