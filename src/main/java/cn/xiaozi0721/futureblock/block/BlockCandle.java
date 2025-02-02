@@ -1,6 +1,6 @@
 package cn.xiaozi0721.futureblock.block;
 
-import cn.xiaozi0721.futureblock.register.SoundEventRegister;
+import cn.xiaozi0721.futureblock.registry.Sounds;
 import cn.xiaozi0721.futureblock.util.Util;
 import com.google.common.collect.ImmutableList;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
@@ -52,7 +52,7 @@ public class BlockCandle extends BlockIgnitable {
         super(Material.CIRCUITS, mapColor);
         this.setDefaultState(this.blockState.getBaseState().withProperty(LIT, Boolean.FALSE).withProperty(CANDLES, 1));
         this.setHardness(0.1F);
-        this.setSoundType(SoundEventRegister.CANDLE);
+        this.setSoundType(Sounds.CANDLE);
     }
 
     @Override
@@ -60,7 +60,7 @@ public class BlockCandle extends BlockIgnitable {
         ItemStack itemstack = playerIn.getHeldItem(hand);
         if (state.getValue(LIT) && itemstack.isEmpty()){
             worldIn.setBlockState(pos, state.cycleProperty(LIT), 2);
-            worldIn.playSound(playerIn, pos, SoundEventRegister.CANDLE_EXTINGUISH, SoundCategory.BLOCKS, 1F, 1F + (worldIn.rand.nextFloat() - worldIn.rand.nextFloat()) * 0.8F);
+            worldIn.playSound(playerIn, pos, Sounds.CANDLE_EXTINGUISH, SoundCategory.BLOCKS, 1F, 1F + (worldIn.rand.nextFloat() - worldIn.rand.nextFloat()) * 0.8F);
             return true;
         } else {
             return super.onBlockActivated(worldIn, pos, state, playerIn, hand, facing, hitX, hitY, hitZ);

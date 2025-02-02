@@ -3,7 +3,7 @@ package cn.xiaozi0721.futureblock.item;
 import cn.xiaozi0721.futureblock.block.BlockCandle;
 import cn.xiaozi0721.futureblock.block.BlockCandleCake;
 import cn.xiaozi0721.futureblock.block.BlockIgnitable;
-import cn.xiaozi0721.futureblock.register.SoundEventRegister;
+import cn.xiaozi0721.futureblock.registry.Sounds;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCake;
@@ -75,7 +75,7 @@ public class ItemCandle extends ItemBlock {
                     Block candleCake = iblockstate1.getBlock();
 
                     if (axisalignedbb != Block.NULL_AABB && worldIn.checkNoEntityCollision(axisalignedbb.offset(blockpos)) && worldIn.setBlockState(pos, candleCake.getDefaultState().withProperty(BlockIgnitable.LIT, Boolean.FALSE), 3)) {
-                        worldIn.playSound(player, blockpos, SoundEventRegister.CAKE_ADD_CANDLE, SoundCategory.BLOCKS, 1.0F, 0.8F);
+                        worldIn.playSound(player, blockpos, Sounds.CAKE_ADD_CANDLE, SoundCategory.BLOCKS, 1.0F, 0.8F);
 
                         if (player instanceof EntityPlayerMP) {
                             CriteriaTriggers.PLACED_BLOCK.trigger((EntityPlayerMP)player, pos, itemstack);

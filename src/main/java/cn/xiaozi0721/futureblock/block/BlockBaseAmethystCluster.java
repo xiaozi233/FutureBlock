@@ -1,6 +1,6 @@
 package cn.xiaozi0721.futureblock.block;
 
-import cn.xiaozi0721.futureblock.register.SoundEventRegister;
+import cn.xiaozi0721.futureblock.registry.Sounds;
 import cn.xiaozi0721.futureblock.tab.FutureBlockTab;
 import net.minecraft.block.BlockDirectional;
 import net.minecraft.block.material.Material;
@@ -21,7 +21,7 @@ public abstract class BlockBaseAmethystCluster extends BlockDirectional {
         super(Material.ICE);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
         this.setCreativeTab(FutureBlockTab.FUTUREBLOCK_TAB);
-        this.setSoundType(SoundEventRegister.AMETHYST_CLUSTER);
+        this.setSoundType(Sounds.AMETHYST_CLUSTER);
     }
 
     @Override

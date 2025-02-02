@@ -1,7 +1,7 @@
 package cn.xiaozi0721.futureblock.block;
 
 import cn.xiaozi0721.futureblock.Tags;
-import cn.xiaozi0721.futureblock.register.SoundEventRegister;
+import cn.xiaozi0721.futureblock.registry.Sounds;
 import cn.xiaozi0721.futureblock.tab.FutureBlockTab;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
@@ -30,7 +30,7 @@ public class BlockChain extends BlockRotatedPillar {
         this.setCreativeTab(FutureBlockTab.FUTUREBLOCK_TAB);
         this.setTranslationKey(Tags.MOD_ID + ".block." + name);
         this.setDefaultState(this.blockState.getBaseState().withProperty(AXIS, EnumFacing.Axis.X));
-        this.setSoundType(SoundEventRegister.CHAIN);
+        this.setSoundType(Sounds.CHAIN);
     }
 
     @Override

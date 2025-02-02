@@ -1,10 +1,10 @@
 package cn.xiaozi0721.futureblock.mixin;
 
 import cn.xiaozi0721.futureblock.enchantment.EnchantmentHelper;
-import cn.xiaozi0721.futureblock.register.BlocksRegister;
-import cn.xiaozi0721.futureblock.register.EnchantmentRegister;
-import cn.xiaozi0721.futureblock.register.ParticleRegister;
-import cn.xiaozi0721.futureblock.register.SoundEventRegister;
+import cn.xiaozi0721.futureblock.registry.Blocks;
+import cn.xiaozi0721.futureblock.registry.Enchantments;
+import cn.xiaozi0721.futureblock.registry.Particles;
+import cn.xiaozi0721.futureblock.registry.Sounds;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
@@ -12,7 +12,6 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.entity.ai.attributes.IAttributeInstance;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import org.spongepowered.asm.mixin.Mixin;
@@ -77,7 +76,7 @@ public abstract class MixinEntityLivingBase extends MixinEntity {
     @Unique
     protected void displaySoulSpeedEffects() {
         this.world.spawnParticle(
-                ParticleRegister.SOUL,
+                Particles.SOUL,
                 this.posX + (this.rand.nextDouble() - 0.5) * (double)this.width,
                 this.posY + 0.1,
                 this.posZ + (this.rand.nextDouble() - 0.5) * (double)this.width,
@@ -86,17 +85,18 @@ public abstract class MixinEntityLivingBase extends MixinEntity {
                 this.motionZ * -0.2
         );
         float f = this.rand.nextFloat() * 0.4F + this.rand.nextFloat() > 0.9F ? 0.6F : 0.0F;
-        this.playSound(SoundEventRegister.PARTICLE_SOUL_ESCAPE, f, 0.6F + this.rand.nextFloat() * 0.4F);
+        this.playSound(Sounds.PARTICLE_SOUL_ESCAPE, f, 0.6F + this.rand.nextFloat() * 0.4F);
     }
 
     @Unique
     protected boolean isOnSoulSpeedBlock() {
-        return this.getVelocityAffectingBlock() == BlocksRegister.SOUL_SAND_NEW;
+        return this.getVelocityAffectingBlock() == Blocks.SOUL_SAND_NEW;
     }
 
+    @SuppressWarnings("DataFlowIssue")
     @Unique
     protected boolean shouldRemoveSoulSpeedBoost(IBlockState landingState) {
-        return landingState != Blocks.AIR.getDefaultState() || this.isElytraFlying();
+        return landingState != net.minecraft.init.Blocks.AIR.getDefaultState() || this.isElytraFlying();
     }
 
     @Unique
@@ -109,11 +109,12 @@ public abstract class MixinEntityLivingBase extends MixinEntity {
         }
     }
 
+    @SuppressWarnings("DataFlowIssue")
     @Unique
     protected void tryAddSoulSpeedBoost() {
-        if (this.getLandingBlockState() != Blocks.AIR.getDefaultState() ) {
+        if (this.getLandingBlockState() != net.minecraft.init.Blocks.AIR.getDefaultState() ) {
             int i = EnchantmentHelper.getSoulSpeedModifier(getEntity());
-            if (i > 0 && getLowerBlock(0.5D) == BlocksRegister.SOUL_SAND_NEW) {
+            if (i > 0 && getLowerBlock(0.5D) == Blocks.SOUL_SAND_NEW) {
                 IAttributeInstance iattributeinstance = this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED);
 
                 if (iattributeinstance == null) {
@@ -129,7 +130,7 @@ public abstract class MixinEntityLivingBase extends MixinEntity {
                         )).setSaved(false)
                 );
                 if (this.rand.nextFloat() < 0.04F) {
-                    ItemStack itemStack = EnchantmentHelper.getEnchantedItem(EnchantmentRegister.SOUL_SPEED, getEntity());
+                    ItemStack itemStack = EnchantmentHelper.getEnchantedItem(Enchantments.SOUL_SPEED, getEntity());
                     itemStack.damageItem(1, getEntity());
                 }
             }

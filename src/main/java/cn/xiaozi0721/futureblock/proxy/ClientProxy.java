@@ -1,7 +1,7 @@
 package cn.xiaozi0721.futureblock.proxy;
 
 import cn.xiaozi0721.futureblock.Tags;
-import cn.xiaozi0721.futureblock.register.ParticleRegister;
+import cn.xiaozi0721.futureblock.registry.Particles;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.relauncher.Side;
 
@@ -11,6 +11,6 @@ public class ClientProxy extends CommonProxy{
     @Override
     public void init() {
         super.init();
-        ParticleRegister.clientInit();
+        Particles.registerParticleOnClient();
     }
 }

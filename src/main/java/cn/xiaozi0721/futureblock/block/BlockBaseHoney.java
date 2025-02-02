@@ -1,7 +1,7 @@
 package cn.xiaozi0721.futureblock.block;
 
 import cn.xiaozi0721.futureblock.interfaces.IBlockSpeedFactor;
-import cn.xiaozi0721.futureblock.register.SoundEventRegister;
+import cn.xiaozi0721.futureblock.registry.Sounds;
 import cn.xiaozi0721.futureblock.tab.FutureBlockTab;
 import net.minecraft.block.BlockBreakable;
 import net.minecraft.block.material.MapColor;
@@ -30,7 +30,7 @@ public abstract class BlockBaseHoney extends BlockBreakable implements IBlockSpe
     protected BlockBaseHoney() {
         super(Material.CLAY, false, MapColor.ADOBE);
         this.setCreativeTab(FutureBlockTab.FUTUREBLOCK_TAB);
-        this.setSoundType(SoundEventRegister.HONEY);
+        this.setSoundType(Sounds.HONEY);
     }
 
     private static boolean hasHoneyBlockEffects(Entity entityIn) {
@@ -55,7 +55,7 @@ public abstract class BlockBaseHoney extends BlockBreakable implements IBlockSpe
 
     @Override
     public void onFallenUpon(World worldIn, BlockPos pos, Entity entityIn, float fallDistance) {
-        entityIn.playSound(SoundEventRegister.HONEY_SLIDE, 1.0F, 1.0F);
+        entityIn.playSound(Sounds.HONEY_SLIDE, 1.0F, 1.0F);
         entityIn.fall(fallDistance, 0.2F);
         if (worldIn.isRemote) {
             spawnParticles(entityIn, 10);
@@ -99,7 +99,7 @@ public abstract class BlockBaseHoney extends BlockBreakable implements IBlockSpe
     private void addCollisionEffects(World worldIn, Entity entityIn) {
         if (hasHoneyBlockEffects(entityIn)) {
             if (worldIn.rand.nextInt(5) == 0) {
-                entityIn.playSound(SoundEventRegister.HONEY_SLIDE, 1.0F, 1.0F);
+                entityIn.playSound(Sounds.HONEY_SLIDE, 1.0F, 1.0F);
             }
             if (worldIn.isRemote && worldIn.rand.nextInt(5) == 0) {
                 spawnParticles(entityIn, 5);

@@ -1,7 +1,7 @@
 package cn.xiaozi0721.futureblock.block;
 
-import cn.xiaozi0721.futureblock.register.ParticleRegister;
-import cn.xiaozi0721.futureblock.register.SoundEventRegister;
+import cn.xiaozi0721.futureblock.registry.Particles;
+import cn.xiaozi0721.futureblock.registry.Sounds;
 import cn.xiaozi0721.futureblock.tab.FutureBlockTab;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
@@ -84,7 +84,7 @@ public abstract class BlockIgnitable extends Block {
                         vec3d.x + 0.5,
                         vec3d.y + 0.5,
                         vec3d.z + 0.5,
-                        SoundEventRegister.CANDLE_AMBIENT,
+                        Sounds.CANDLE_AMBIENT,
                         SoundCategory.BLOCKS,
                         1.0F + rand.nextFloat(),
                         rand.nextFloat() * 0.7F + 0.3F,
@@ -93,6 +93,6 @@ public abstract class BlockIgnitable extends Block {
             }
         }
 
-        worldIn.spawnParticle(ParticleRegister.SMALL_FLAME, vec3d.x, vec3d.y, vec3d.z, 0.0, 0.0, 0.0);
+        worldIn.spawnParticle(Particles.SMALL_FLAME, vec3d.x, vec3d.y, vec3d.z, 0.0, 0.0, 0.0);
     }
 }

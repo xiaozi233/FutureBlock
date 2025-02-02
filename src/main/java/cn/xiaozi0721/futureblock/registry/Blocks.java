@@ -1,4 +1,4 @@
-package cn.xiaozi0721.futureblock.register;
+package cn.xiaozi0721.futureblock.registry;
 
 import cn.xiaozi0721.futureblock.Tags;
 import cn.xiaozi0721.futureblock.block.*;
@@ -11,15 +11,12 @@ import net.minecraft.item.ItemBlock;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.Objects;
 
-@Mod.EventBusSubscriber(modid = Tags.MOD_ID)
-public final class BlocksRegister {
+public final class Blocks {
     public static final Block AMETHYST_CLUSTER = new BlockAmethystCluster();
     public static final Block SMALL_AMETHYST_BUD = new BlockSmallAmethystBud();
     public static final Block MEDIUM_AMETHYST_BUD= new BlockMediumAmethystBud();
@@ -86,42 +83,36 @@ public final class BlocksRegister {
             LIME_CANDLE_CAKE, PINK_CANDLE_CAKE, GRAY_CANDLE_CAKE, LIGHT_GRAY_CANDLE_CAKE, CYAN_CANDLE_CAKE, PURPLE_CANDLE_CAKE,
             BLUE_CANDLE_CAKE, BROWN_CANDLE_CAKE, GREEN_CANDLE_CAKE, RED_CANDLE_CAKE, BLACK_CANDLE_CAKE
     };
-    
-    @SubscribeEvent
+
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
-        for (Block block : blocks) {
-            event.getRegistry().register(block);
-        }
-        for (Block block : candles) {
-            event.getRegistry().register(block);
-        }
-        for (Block block : candleCakes){
-            event.getRegistry().register(block);
-        }
+        event.getRegistry().registerAll(blocks);
+        event.getRegistry().registerAll(candles);
+        event.getRegistry().registerAll(candleCakes);
     }
 
-    @SubscribeEvent
     public static void registerItemBlocks(RegistryEvent.Register<Item> event) {
-        Item itemBlock;
         for (Block block : blocks){
-            itemBlock = new ItemBlock(block).setRegistryName(Objects.requireNonNull(block.getRegistryName()));
-            event.getRegistry().register(itemBlock);
+            event.getRegistry().register(new ItemBlock(block).setRegistryName(Objects.requireNonNull(block.getRegistryName())));
         }
         for (Block candle : candles){
-            itemBlock = new ItemCandle(candle).setRegistryName(Objects.requireNonNull(candle.getRegistryName()));
-            event.getRegistry().register(itemBlock);
+            event.getRegistry().register(new ItemCandle(candle).setRegistryName(Objects.requireNonNull(candle.getRegistryName())));
         }
     }
 
     @SideOnly(Side.CLIENT)
-    @SubscribeEvent
     public static void onModelRegister(ModelRegistryEvent event) {
-       for (Block block : blocks){
-           ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), 0, new ModelResourceLocation(Objects.requireNonNull(block.getRegistryName()), "inventory"));
-       }
-       for (Block candle : candles){
-           ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(candle), 0, new ModelResourceLocation(Objects.requireNonNull(candle.getRegistryName()), "inventory"));
-       }
+        registerModelsAll(blocks);
+        registerModelsAll(candles);
+    }
+
+    private static void registerModelsAll(Block... blocks){
+        for (Block block : blocks){
+            ModelLoader.setCustomModelResourceLocation(
+                    Item.getItemFromBlock(block),
+                    0,
+                    new ModelResourceLocation(Objects.requireNonNull(block.getRegistryName()), "inventory")
+            );
+        }
     }
 
     private static Block registerName(Block block, String name){
