@@ -8,7 +8,7 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 
 @SuppressWarnings(value={"unused"})
-@Mod.EventBusSubscriber
+@Mod.EventBusSubscriber(modid = Tags.MOD_ID)
 public class SoundEventRegister {
     public static final SoundEvent AMETHYST_CLUSTER_BREAK = newSoundEvent("block.amethyst_cluster.break");
     public static final SoundEvent AMETHYST_CLUSTER_STEP = newSoundEvent("block.amethyst_cluster.step");
@@ -33,6 +33,7 @@ public class SoundEventRegister {
     public static final SoundEvent CANDLE_HIT = newSoundEvent("block.candle.hit");
     public static final SoundEvent CANDLE_PLACE = newSoundEvent("block.candle.place");
     public static final SoundEvent CANDLE_STEP = newSoundEvent("block.candle.step");
+    public static final SoundEvent CAKE_ADD_CANDLE = newSoundEvent("block.cake.add_candle");
 
     public static final SoundEvent PARTICLE_SOUL_ESCAPE = newSoundEvent("particle.soul_escape");
 
@@ -45,7 +46,7 @@ public class SoundEventRegister {
             AMETHYST_CLUSTER_BREAK, AMETHYST_CLUSTER_STEP, AMETHYST_CLUSTER_PLACE, AMETHYST_CLUSTER_HIT, AMETHYST_CLUSTER_FALL,
             CHAIN_BREAK, CHAIN_STEP, CHAIN_PLACE, CHAIN_HIT, CHAIN_FALL,
             HONEY_BREAK, HONEY_STEP, HONEY_PLACE, HONEY_HIT, HONEY_FALL, HONEY_SLIDE,
-            CANDLE_AMBIENT, CANDLE_BREAK, CANDLE_EXTINGUISH, CANDLE_STEP, CANDLE_PLACE, CANDLE_HIT, CANDLE_FALL,
+            CANDLE_AMBIENT, CANDLE_BREAK, CANDLE_EXTINGUISH, CANDLE_STEP, CANDLE_PLACE, CANDLE_HIT, CANDLE_FALL, CAKE_ADD_CANDLE,
             PARTICLE_SOUL_ESCAPE
     };
 

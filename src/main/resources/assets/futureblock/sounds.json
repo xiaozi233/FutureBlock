@@ -263,6 +263,14 @@
     ],
     "subtitle": "subtitles.block.generic.footsteps"
   },
+  "block.cake.add_candle": {
+    "sounds": [
+      "futureblock:block/cake/add_candle1",
+      "futureblock:block/cake/add_candle2",
+      "futureblock:block/cake/add_candle3"
+    ],
+    "subtitle": "subtitles.block.cake.add_candle"
+  },
   "block.candle.ambient": {
     "sounds": [
       {

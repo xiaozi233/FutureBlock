@@ -3,6 +3,7 @@ package cn.xiaozi0721.futureblock.item;
 import cn.xiaozi0721.futureblock.block.BlockCandle;
 import cn.xiaozi0721.futureblock.block.BlockCandleCake;
 import cn.xiaozi0721.futureblock.block.BlockIgnitable;
+import cn.xiaozi0721.futureblock.register.SoundEventRegister;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCake;
@@ -13,10 +14,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.SoundCategory;
+import net.minecraft.util.*;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -77,8 +75,7 @@ public class ItemCandle extends ItemBlock {
                     Block candleCake = iblockstate1.getBlock();
 
                     if (axisalignedbb != Block.NULL_AABB && worldIn.checkNoEntityCollision(axisalignedbb.offset(blockpos)) && worldIn.setBlockState(pos, candleCake.getDefaultState().withProperty(BlockIgnitable.LIT, Boolean.FALSE), 3)) {
-                        SoundType soundtype = this.block.getSoundType(iblockstate1, worldIn, pos, player);
-                        worldIn.playSound(player, blockpos, soundtype.getPlaceSound(), SoundCategory.BLOCKS, (soundtype.getVolume() + 1.0F) / 2.0F, soundtype.getPitch() * 0.8F);
+                        worldIn.playSound(player, blockpos, SoundEventRegister.CAKE_ADD_CANDLE, SoundCategory.BLOCKS, 1.0F, 0.8F);
 
                         if (player instanceof EntityPlayerMP) {
                             CriteriaTriggers.PLACED_BLOCK.trigger((EntityPlayerMP)player, pos, itemstack);
