@@ -22,9 +22,8 @@ public class ParticleRegister {
     public static EnumParticleTypes SMALL_FLAME;
     public static EnumParticleTypes SOUL;
 
-
     public static void init(){
-        SMALL_FLAME = registerParticle("SMALL_FLAME", "smallFlame", false, new ParticleSmallFlame.SmallFactory());
+        SMALL_FLAME = registerParticle("SMALL_FLAME", "smallFlame", false, new ParticleSmallFlame.Factory());
         SOUL = registerParticle("SOUl", "soul", false, new ParticleSoul.Factory());
     }
 
@@ -42,9 +41,11 @@ public class ParticleRegister {
     @SubscribeEvent
     @SideOnly(Side.CLIENT)
     public static void onTextureStitchEventPre(TextureStitchEvent.Pre event) {
-        ParticleSoul.textures = IntStream.range(0, 11)
+        ParticleSoul.setTextures(
+                IntStream.range(0, 11)
                 .mapToObj(i -> new ResourceLocation(Tags.MOD_ID, "particle/soul_" + i))
                 .map(event.getMap()::registerSprite)
-                .toArray(TextureAtlasSprite[]::new);
+                .toArray(TextureAtlasSprite[]::new)
+        );
     }
 }

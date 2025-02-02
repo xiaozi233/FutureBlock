@@ -54,7 +54,7 @@ public abstract class MixinEntityLivingBase extends MixinEntity {
     }
 
     @Inject(method ="updateFallState", at = @At(value = "FIELD", target = "Lnet/minecraft/entity/EntityLivingBase;world:Lnet/minecraft/world/World;", ordinal = 0))
-    private void soulSpeedBoostWhenFall(double y, boolean onGroundIn, IBlockState state, BlockPos pos, CallbackInfo ci){
+    private void soulSpeedBoostWhenLanding(double y, boolean onGroundIn, IBlockState state, BlockPos pos, CallbackInfo ci){
         if (!this.world.isRemote && onGroundIn && this.fallDistance > 0.0F) {
             this.removeSoulSpeedBoost();
             this.tryAddSoulSpeedBoost();

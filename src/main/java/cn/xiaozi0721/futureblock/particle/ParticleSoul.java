@@ -9,25 +9,25 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class ParticleSoul extends Particle {
-    public static TextureAtlasSprite[] textures;
+    private static TextureAtlasSprite[] textures;
 
     public ParticleSoul(World worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeedIn, double ySpeedIn, double zSpeedIn) {
         super(worldIn, xCoordIn, yCoordIn, zCoordIn, xSpeedIn, ySpeedIn, zSpeedIn);
         this.particleScale = (this.rand.nextFloat() * 0.5F + 0.5F) * 2.0F;
-        this.motionX = this.motionX * 0.009999999776482582D + xSpeedIn;
-        this.motionY = this.motionY * 0.009999999776482582D + ySpeedIn;
-        this.motionZ = this.motionZ * 0.009999999776482582D + zSpeedIn;
+        this.motionX = this.motionX * 0.01D + xSpeedIn;
+        this.motionY = this.motionY * 0.01D + ySpeedIn;
+        this.motionZ = this.motionZ * 0.01D + zSpeedIn;
         this.posX += (this.rand.nextFloat() - this.rand.nextFloat()) * 0.05F;
         this.posY += (this.rand.nextFloat() - this.rand.nextFloat()) * 0.05F;
         this.posZ += (this.rand.nextFloat() - this.rand.nextFloat()) * 0.05F;
         this.particleMaxAge = (int)(8.0D / (Math.random() * 0.8D + 0.2D)) + 4;
         this.multipleParticleScaleBy(1.5F);
-        this.setSpriteForAge(textures);
+        this.setTextureForAge(textures);
     }
 
-    private void setSpriteForAge(TextureAtlasSprite[] textures){
+    private void setTextureForAge(TextureAtlasSprite[] textures){
         if (!this.isExpired){
-            this.setParticleTexture(textures[(particleAge * (textures.length - 1) / particleMaxAge)]);
+            this.setParticleTexture(textures[particleAge * (textures.length - 1) / particleMaxAge]);
         }
     }
 
@@ -43,8 +43,16 @@ public class ParticleSoul extends Particle {
     @Override
     public void onUpdate() {
         super.onUpdate();
-        this.setSpriteForAge(textures);
+        this.setTextureForAge(textures);
     }
+
+    public static void setTextures(TextureAtlasSprite[] textures) {
+        if (ParticleSoul.textures != null) {
+            throw new IllegalStateException("The textures array has already been initialized and cannot be set again.");
+        }
+        ParticleSoul.textures = textures;
+    }
+    
     @SuppressWarnings("NullableProblems")
     @SideOnly(Side.CLIENT)
     public static class Factory implements IParticleFactory {

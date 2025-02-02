@@ -16,8 +16,7 @@ public class EnchantmentsSoulSpeed extends Enchantment {
         EnchantmentRegister.ENCHANTMENTS.add(this);
     }
     @Override
-    public int getMinEnchantability(int enchantmentLevel)
-    {
+    public int getMinEnchantability(int enchantmentLevel) {
         return 10 * enchantmentLevel;
     }
 

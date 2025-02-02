@@ -39,8 +39,7 @@ public abstract class BlockBaseHoney extends BlockBreakable implements IBlockSpe
 
     @SideOnly(Side.CLIENT)
     @Override
-    public BlockRenderLayer getRenderLayer()
-    {
+    public BlockRenderLayer getRenderLayer() {
         return BlockRenderLayer.TRANSLUCENT;
     }
 
