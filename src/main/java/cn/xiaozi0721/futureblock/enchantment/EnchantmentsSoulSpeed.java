@@ -4,7 +4,6 @@ import cn.xiaozi0721.futureblock.Tags;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.inventory.EntityEquipmentSlot;
-import net.minecraft.util.ResourceLocation;
 
 import static cn.xiaozi0721.futureblock.register.EnchantmentRegister.registerEnchantment;
 
@@ -13,7 +12,7 @@ public class EnchantmentsSoulSpeed extends Enchantment {
         super(Rarity.VERY_RARE, EnumEnchantmentType.ARMOR_FEET, new EntityEquipmentSlot[] {EntityEquipmentSlot.FEET});
         String name = "soul_speed";
         this.setName(name);
-        this.setRegistryName(new ResourceLocation(Tags.MOD_ID + name));
+        this.setRegistryName(Tags.MOD_ID, name);
         registerEnchantment(this);
     }
     @Override
