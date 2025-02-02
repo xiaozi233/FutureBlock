@@ -25,12 +25,6 @@ public class ParticleSoul extends Particle {
         this.setTextureForAge(textures);
     }
 
-    private void setTextureForAge(TextureAtlasSprite[] textures){
-        if (!this.isExpired){
-            this.setParticleTexture(textures[particleAge * (textures.length - 1) / particleMaxAge]);
-        }
-    }
-
     @Override
     public int getFXLayer() {
         return 1;
@@ -52,7 +46,13 @@ public class ParticleSoul extends Particle {
         }
         ParticleSoul.textures = textures;
     }
-    
+
+    private void setTextureForAge(TextureAtlasSprite[] textures){
+        if (!this.isExpired){
+            this.setParticleTexture(textures[particleAge * (textures.length - 1) / particleMaxAge]);
+        }
+    }
+
     @SuppressWarnings("NullableProblems")
     @SideOnly(Side.CLIENT)
     public static class Factory implements IParticleFactory {

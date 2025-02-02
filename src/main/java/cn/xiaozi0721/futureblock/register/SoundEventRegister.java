@@ -6,6 +6,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 @SuppressWarnings(value={"unused"})
 @Mod.EventBusSubscriber(modid = Tags.MOD_ID)
@@ -50,6 +51,7 @@ public class SoundEventRegister {
             PARTICLE_SOUL_ESCAPE
     };
 
+    @SubscribeEvent
     public static void onSoundEventRegistration(RegistryEvent.Register<SoundEvent> event) {
         for (SoundEvent soundEvent : soundEvents){
             event.getRegistry().register(soundEvent);

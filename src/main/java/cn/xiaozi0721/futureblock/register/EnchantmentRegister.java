@@ -12,7 +12,7 @@ import java.util.List;
 
 @Mod.EventBusSubscriber(modid = Tags.MOD_ID)
 public class EnchantmentRegister {
-    public static final List<Enchantment> ENCHANTMENTS = new ArrayList<>();
+    private static final List<Enchantment> ENCHANTMENTS = new ArrayList<>();
     public static final Enchantment SOUL_SPEED = new EnchantmentsSoulSpeed();
 
     @SubscribeEvent
@@ -20,4 +20,7 @@ public class EnchantmentRegister {
         event.getRegistry().registerAll(ENCHANTMENTS.toArray(new Enchantment[0]));
     }
 
+    public static void registerEnchantment(Enchantment enchantment) {
+        ENCHANTMENTS.add(enchantment);
+    }
 }

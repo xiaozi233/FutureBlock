@@ -1,11 +1,12 @@
 package cn.xiaozi0721.futureblock.enchantment;
 
 import cn.xiaozi0721.futureblock.Tags;
-import cn.xiaozi0721.futureblock.register.EnchantmentRegister;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.util.ResourceLocation;
+
+import static cn.xiaozi0721.futureblock.register.EnchantmentRegister.registerEnchantment;
 
 public class EnchantmentsSoulSpeed extends Enchantment {
     public EnchantmentsSoulSpeed() {
@@ -13,7 +14,7 @@ public class EnchantmentsSoulSpeed extends Enchantment {
         String name = "soul_speed";
         this.setName(name);
         this.setRegistryName(new ResourceLocation(Tags.MOD_ID + name));
-        EnchantmentRegister.ENCHANTMENTS.add(this);
+        registerEnchantment(this);
     }
     @Override
     public int getMinEnchantability(int enchantmentLevel) {
